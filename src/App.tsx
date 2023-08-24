@@ -1,4 +1,6 @@
-import React from 'react';
+
+import React from 'react';;
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './Components/Footer';
 import Characters from './Components/Characters';
@@ -27,3 +29,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+

@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
     <nav className="navbar">
       <ul className="flex justify-center space-x-8">
         <li className="nav-item">
-          <a href="/Home" className="nav-link">Accueil</a>
+          <Link to="/Acceuil" className="nav-link">Acceuil</Link>
         </li>
         <li className="nav-item">
           <Link to="/Comics" className="nav-link">Comics</Link>
@@ -15,10 +15,10 @@ const Navbar: React.FC = () => {
           <Link to="/ma-liste" className="nav-link">Ma liste</Link>
         </li>
         <li className="nav-item">
-          <a href="/Personnages" className="nav-link">Personnages</a>
+          <Link to="/Personnages" className="nav-link">Personnages</Link>
         </li>
         <li className="nav-item ml-auto">
-          <a href="/register" className="nav-link">Se connecter</a>
+          <Link to="/register" className="nav-link">Se connecter</Link>
         </li>
       </ul>
     </nav>

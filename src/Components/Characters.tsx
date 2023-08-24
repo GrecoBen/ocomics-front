@@ -26,8 +26,7 @@ const YourComponent: React.FC = () => {
         <div key={index} className="mr-4">
           <Image.PreviewGroup items={characters}>
             <Image className="w-48 h-48" src={imageUrl} />
-            <a href="/Personnages" className="nav-link">{Hero[index]}</a>
-           
+            <Button type="link">{Hero[index]}</Button>
           </Image.PreviewGroup>
         </div>
       ))}

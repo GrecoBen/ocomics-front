@@ -1,3 +1,4 @@
+
 import React from 'react';;
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Carousel from './Components/Carousel';
@@ -21,3 +22,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+

@@ -1,1 +1,3 @@
-# projet-10-o-comicverse-v-2
+# Comicverse Front V-2
+
+### React | TypeScript | Vite | Tailwindcss | Framer motion

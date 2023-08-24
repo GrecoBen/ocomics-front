@@ -1,11 +1,15 @@
-const App = () => {
-  return (
-    <>
-      <div className="bg-black text-3xl text-white font-bold">
-        o-comicverse-front-v-2
-       </div>
-    </>
-  )
-}
+import React from 'react';
+import Footer from './Components/Footer';
+import Carousel from './Components/Carousel';
 
-export default App
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <Carousel />  
+      <Footer /> 
+
+    </div>
+  );
+};
+
+export default App;

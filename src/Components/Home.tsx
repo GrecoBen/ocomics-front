@@ -1,12 +1,13 @@
 import React from 'react';
 import Characters from './Characters';
-import NavBar from './NavBar';
 import Carousel from '../Components/Carousel';
+import ComicsCard from './ComicsCard';
+import Comics from './Comics';
 
 const Home: React.FC = () => {
   return (
     <div>
-      <NavBar />
+      
       <Carousel />
       <h1>Bienvenue Sur O'Comics</h1>
       <p>
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
       <p>
         Rejoignez notre communauté pour partager votre passion et discuter avec d'autres fans de comics!
       </p>
+      <Comics />
       <Characters />
         
     </div>

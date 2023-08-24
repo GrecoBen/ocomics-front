@@ -1,23 +1,30 @@
 
 import React from 'react';;
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Carousel from './Components/Carousel';
-import NavBar from './Components/NavBar';
-import Footer from './Components/Footer'
+import Footer from './Components/Footer';
+import Characters from './Components/Characters';
+import Home from './Components/Home';
+import Comics from './Components/Comics';
+import Register from './Components/Register';
 
 
 const App: React.FC = () => {
   return (
     <div className="App">
-    <Router>
-      <NavBar />
-      <Routes>
+      <Router>
+        
+        <Routes>                    
+          <Route path="/" element={<Home />} />
+          <Route path="/comicsCard" element={<Comics />} />
+          <Route path="/characters" element={<Characters />} /> 
+          <Route path="/register" element={<Register />} />
         </Routes>
-      <Carousel />  
-      <Footer /> 
-    </Router>
+        <Home />
+         
+        <Footer />
+      </Router>
     </div>
-    
   );
 };
 

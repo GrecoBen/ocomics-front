@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
           <Link to="/ma-liste" className="nav-link">Ma liste</Link>
         </li>
         <li className="nav-item">
-          <Link to="/characters" className="nav-link">Personnages</Link>
+          <Link to="/Personnages" className="nav-link">Personnages</Link>
         </li>
         <li className="nav-item ml-auto">
           <Link to="/register" className="nav-link">Se connecter</Link>

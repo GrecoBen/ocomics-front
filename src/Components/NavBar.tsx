@@ -4,10 +4,14 @@ import React from 'react';
 const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
+
       <ul className="flex justify-center space-x-8">     
         <li className="nav-item"> 
-           
-          <a href="/Home" className="nav-link">Accueil</a>
+                   
+      <ul className="flex justify-center space-x-8">
+        <li className="nav-item">
+          <Link to="/Acceuil" className="nav-link">Acceuil</Link>
+
         </li>
         <li className="nav-item">
           <a href="/Comics" className="nav-link">Comics</a>
@@ -16,10 +20,10 @@ const Navbar: React.FC = () => {
           <a  href="/ma-liste" className="nav-link">Ma liste</a>
         </li>
         <li className="nav-item">
-          <a href="/Personnages" className="nav-link">Personnages</a>
+          <Link to="/Personnages" className="nav-link">Personnages</Link>
         </li>
         <li className="nav-item ml-auto">
-          <a href="/register" className="nav-link">Se connecter</a>
+          <Link to="/register" className="nav-link">Se connecter</Link>
         </li>
       </ul>
     </nav>

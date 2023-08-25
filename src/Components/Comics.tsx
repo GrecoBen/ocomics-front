@@ -10,9 +10,9 @@ const Comics: React.FC = () => {
   const [search, setSearch] = useState('');
  // State de stockage du resultat de l'API
   const [resultAPI, setResultAPI] = useState<ResultAPI[]>();
-
+  // console.log(search);
   useEffect(() => {
-    fetch('http://localhost:8080/api/comics${search}')
+    fetch('http://localhost:8080/api/comics')
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -24,19 +24,20 @@ const Comics: React.FC = () => {
   // Fonction qui gère les props de ComicsCard
   // ".message" est le message d'erreur dans l'API
   const cardPicker = (): Card[]  => {
-    //si le tableau resultAPI est rempli on retourne soit une collection de Card soit un tableau vide
-    resultAPI?.map((resultat:ResultAPI) => {
-      return resultat?.message ? [] : resultat?.items
-    })
-    //sinon (ou par defaut) on retourne un tableau vide
-    return [];
-  };
+    if (!resultAPI || resultAPI.message === "le message d'erreur d'API") return [];
+    return resultAPI.items;
+    };
 
   return (
-    <main>
-      <SearchBar search={search} setSearch={setSearch}/>
-      <ComicsCard cards={cardPicker()}/>
-    </main>
+    <div className="flex flex-wrap place-content-center mx-56">
+      {/* <SearchBar search={search} setSearch={setSearch}/>
+      <ComicsCard cards={cardPicker()}/> */}
+      {resultAPI?.map(item => (
+        <div className="basis-1/3 p-5">
+          <ComicsCard card={item}/>
+        </div>
+        ))}
+    </div>
   );
 };
 

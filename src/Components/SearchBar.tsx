@@ -10,8 +10,6 @@ interface CustomElements extends HTMLFormControlsCollection{
 }
 
 
-
-
 const SearchBar: React.FC<Props> = ({ search, setSearch}) => {
   
 //  Fonction qui gère l'appui sur la touche entrée

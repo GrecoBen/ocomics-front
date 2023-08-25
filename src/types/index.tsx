@@ -10,7 +10,14 @@ export type Card = { // pour pas avoir d'erreur (message est ce qui apparait en 
     // avec des valeurs de n'importe quel type
   };
 
+  export type Character ={
+    alias? : string;
+    name? : string;
+    released_at? : string;
+  };
+
   export type ResultAPI = {
     message? :string;// pour pas avoir d'erreur (message est ce qui apparait en cas d'erreur)
     items? :Card[];
+    post? :Character[];
   }

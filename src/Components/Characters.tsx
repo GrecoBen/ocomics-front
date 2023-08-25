@@ -1,4 +1,3 @@
-import React from 'react';
 import { Image } from 'antd';
 
 const CharactersImg: React.FC = () => {
@@ -26,7 +25,8 @@ const CharactersImg: React.FC = () => {
         <div key={index} className="mr-4">
           <Image.PreviewGroup items={characters}>
             <Image className="w-48 h-48" src={imageUrl} />
-            <Button type="link">{Hero[index]}</Button>
+            <a href="/Personnages" className="nav-link">{Hero[index]}</a>
+           
           </Image.PreviewGroup>
         </div>
       ))}
@@ -34,8 +34,4 @@ const CharactersImg: React.FC = () => {
   );
 };
 
-
 export default CharactersImg;
-=======
-export default YourComponent;
-

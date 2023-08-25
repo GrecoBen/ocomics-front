@@ -7,6 +7,7 @@ const contentStyle: React.CSSProperties = {
   lineHeight: '350px',
   textAlign: 'center',
   background: '#1E3A8A',
+  border: '#5B21B5',
 };
 
 const Slider = [
@@ -19,13 +20,11 @@ const Slider = [
 ];
 
 const App: React.FC = () => (
-  <div className="">
-    <div className="p-8 text-center">
-      <h1 className="text-2xl font-bold mb-4">Bienvenue Sur O'Comics</h1>
-      <p className="">
-        O/comics est la plateforme idéale pour les passionnés de comics. Découvrez de nouveaux comics, échangez avec d'autres membres et complétez vos collections.
-      </p>
-      <p>
+  <div className="flex flex-col h-scream ">
+    <div className="container mx auto p-8 text-center">
+      <h1 className="rounded-lg bg-black bg-opacity-20 px-2 py-1 text-center text-3xl font-stencil font-semibold text-violet-800">Bienvenue Sur O'Comics</h1>
+      <p className="rounded-lg bg-black bg-opacity-20 px-2 py-1 text-center text-1xl font-stencil font-semibold text-violet-800">
+        O'comics est la plateforme idéale pour les passionnés de comics. Découvrez de nouveaux comics, échangez avec d'autres membres et complétez vos collections.        
         Rejoignez notre communauté pour partager votre passion et discuter avec d'autres fans de comics!
       </p>
     </div>
@@ -35,7 +34,7 @@ const App: React.FC = () => (
           <img
             src={imageUrl}
             alt={`Slide-${index}`}
-            style={{ ...contentStyle, width: '100%', objectFit: 'contain' }}
+            style={{ ...contentStyle, width: '100%', objectFit: 'contain'  }}
             className="max-h-96 mx-auto"
           />
         </div>

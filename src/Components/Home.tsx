@@ -4,7 +4,7 @@ import Carousel from '../Components/Carousel';
 import Comics from './Comics';
 const Home: React.FC = () => {
   return (
-    <div>      
+    <div className= "bg-slate-900 min-h-screen"      >
       <Carousel />
       <Comics />
       <Characters />

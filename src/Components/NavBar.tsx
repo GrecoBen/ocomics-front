@@ -1,24 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
+
       <ul className="flex justify-center space-x-8 font-semibold">
         <li className="nav-item">
-          <Link to="/Acceuil" className="nav-link">Accueil</Link>
+          <Link to="/Accueil" className="nav-link">Accueil</Link>
+          
         </li>
         <li className="nav-item">
-          <Link to="/Comics" className="nav-link">Comics</Link>
+          <a href="/Comics" className="nav-link">Comics</a>
         </li>
         <li className="nav-item">
-          <Link to="/ma-liste" className="nav-link">Ma liste</Link>
+          <a  href="/ma-liste" className="nav-link">Ma liste</a>
         </li>
         <li className="nav-item">
-          <Link to="/Personnages" className="nav-link">Personnages</Link>
+          <a href ="/Personnages" className="nav-link">Personnages</a>
         </li>
         <li className="nav-item ml-auto">
-          <Link to="/register" className="nav-link">Se connecter</Link>
+          <a href ="/register" className="nav-link">Se connecter</a>
         </li>
       </ul>
     </nav>

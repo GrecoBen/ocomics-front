@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Image, Button } from 'antd';
 import { ResultAPI } from '../types';
@@ -17,6 +18,7 @@ const CharacterImage: React.FC = () => {
       .catch((err) => console.error(err)); 
   },); 
   /*const characters = [
+
     'https://i.ibb.co/5hxqBVw/ai-generated-8098396-1280.png',
     'https://i.ibb.co/n3Ly567/ai-generated-8154910-1280.jpg',
     'https://i.ibb.co/dBQx2gM/captain-america-6789190-1280.jpg',
@@ -36,11 +38,12 @@ const CharacterImage: React.FC = () => {
 
   return (
     <div className="flex">
-      {characters.map((imageUrl, index) => (
+            {characters.map((imageUrl, index) => (
         <div key={index} className="mr-4">
           <Image.PreviewGroup items={characters}>
             <Image className="w-48 h-48" src={imageUrl} />
-            <Button type="link">{Hero[index]}</Button>
+            <a href="/Personnages" className="nav-link">{Hero[index]}</a>
+           
           </Image.PreviewGroup>
         </div>
       ))}
@@ -63,8 +66,10 @@ const CharacterImage: React.FC = () => {
   );
 };
 
+
 export default CharacterImage;
 
 function setResultAPI2(data: any) {
   throw new Error('Function not implemented.');
 }
+

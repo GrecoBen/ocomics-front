@@ -1,11 +1,10 @@
 import React from 'react';
 import Characters from './Characters';
-import NavBar from './NavBar';
 import Carousel from '../Components/Carousel';
 import Comics from './Comics';
-
 const Home: React.FC = () => {
   return (
+
     <div className=''>
       <NavBar />
       <Carousel />

@@ -3,8 +3,8 @@ import { FacebookOutlined, TwitterOutlined, InstagramOutlined } from "@ant-desig
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer bg-amber-400 h-full w-full  border-5 p-2">
-      <div className = "flex h-12 items-center justify-end ">
+    <footer className="footer bg-amber-400 h-full w-full  border-5 p-0 ">
+      <div className = "flex h-12 items-center justify-end flex space-x-2 ">
       <a href="http://design.wonderflow.ai/get-started/symbols#facebook" target="_blank" rel="noopener noreferrer">
         <FacebookOutlined className="text-4xl " /> 
       </a>

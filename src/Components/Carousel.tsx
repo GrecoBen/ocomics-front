@@ -10,12 +10,12 @@ const contentStyle: React.CSSProperties = {
 };
 
 const Slider = [
-  'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg',
-  'http://i.annihil.us/u/prod/marvel/i/mg/1/b0/5269678709fb7.jpg',
-  'http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg',
-  "http://i.annihil.us/u/prod/marvel/i/mg/9/30/535feab462a64.jpg",
-  "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04.jpg",
-  "http://i.annihil.us/u/prod/marvel/i/mg/3/80/4c00358ec7548.jpg",
+  'https://i.ibb.co/5hxqBVw/ai-generated-8098396-1280.png',
+  'https://i.ibb.co/n3Ly567/ai-generated-8154910-1280.jpg',
+  'https://i.ibb.co/dBQx2gM/captain-america-6789190-1280.jpg',
+  "https://i.ibb.co/XyQn0zj/marvel-3165096-1280.jpg",
+  "https://i.ibb.co/Y0ky8kj/spiderman-8158916-1280.png",
+  "https://i.ibb.co/bJRxSCr/the-incredible-hulk-7471339-1280.jpg"
 ];
 
 const App: React.FC = () => (

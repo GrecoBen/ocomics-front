@@ -11,9 +11,9 @@ export type Card = { // pour pas avoir d'erreur (message est ce qui apparait en 
   };
 
   export type Character ={
-    alias? : string;
     name? : string;
     released_at? : string;
+    poster? :string;
   };
 
   export type ResultAPI = {

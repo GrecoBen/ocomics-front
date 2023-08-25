@@ -11,7 +11,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Router>  
-      <NavBar />      
+           
         <Routes>   
           <Route path="/" element={<Home />} />                 
           <Route path="/Home" element={<Home />} />

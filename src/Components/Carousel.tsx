@@ -24,20 +24,21 @@ const App: React.FC = () => (
       <h1 className="text-2xl font-bold mb-4">Bienvenue Sur O'Comics</h1>
       <p className="">
         O/comics est la plateforme idéale pour les passionnés de comics. Découvrez de nouveaux comics, échangez avec d'autres membres et complétez vos collections.
-      </p>
-      <p>
+      
         Rejoignez notre communauté pour partager votre passion et discuter avec d'autres fans de comics!
       </p>
     </div>
     <Carousel autoplay>
       {Slider.map((imageUrl, index) => (
         <div key={index} className="w-full">
+          
           <img
             src={imageUrl}
             alt={`Slide-${index}`}
             style={{ ...contentStyle, width: '100%', objectFit: 'contain' }}
             className="max-h-96 mx-auto"
           />
+          
         </div>
       ))}
     </Carousel>

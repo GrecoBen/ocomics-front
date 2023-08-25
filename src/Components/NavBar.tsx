@@ -1,16 +1,15 @@
 import React from 'react';
 
-
 const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
 
-      <ul className="flex justify-center space-x-8">     
-        <li className="nav-item"> 
+      <ul className="flex justify-center space-x-8"/>     
+        <li className="nav-item"/> 
                    
       <ul className="flex justify-center space-x-8">
         <li className="nav-item">
-          <Link to="/Acceuil" className="nav-link">Acceuil</Link>
+          <a href="/Acceuil" className="nav-link">Accueil</a>
 
         </li>
         <li className="nav-item">
@@ -20,10 +19,10 @@ const Navbar: React.FC = () => {
           <a  href="/ma-liste" className="nav-link">Ma liste</a>
         </li>
         <li className="nav-item">
-          <Link to="/Personnages" className="nav-link">Personnages</Link>
+          <a href ="/Personnages" className="nav-link">Personnages</a>
         </li>
         <li className="nav-item ml-auto">
-          <Link to="/register" className="nav-link">Se connecter</Link>
+          <a href ="/register" className="nav-link">Se connecter</a>
         </li>
       </ul>
     </nav>

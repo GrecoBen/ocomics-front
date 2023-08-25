@@ -4,13 +4,10 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
 
-      <ul className="flex justify-center space-x-8"/>     
-        <li className="nav-item"/> 
-                   
-      <ul className="flex justify-center space-x-8">
+      <ul className="flex justify-center space-x-8 font-semibold">
         <li className="nav-item">
-          <a href="/Acceuil" className="nav-link">Accueil</a>
-
+          <Link to="/Accueil" className="nav-link">Accueil</Link>
+          
         </li>
         <li className="nav-item">
           <a href="/Comics" className="nav-link">Comics</a>

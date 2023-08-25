@@ -10,7 +10,7 @@ const Comics: React.FC = () => {
   const [search, setSearch] = useState('');
  // State de stockage du resultat de l'API
   const [resultAPI, setResultAPI] = useState<ResultAPI[]>();
-  const [resultAPI2, setResultAPI2] = useState<ResultAPI[]>();
+ 
   // console.log(search);
   useEffect(() => {
     fetch('http://localhost:8080/api/comics')
@@ -22,15 +22,7 @@ const Comics: React.FC = () => {
       .catch((err) => console.error(err));
   }, [search]);
   
-  useEffect(() => {
-    fetch('http://localhost:8080/api/character')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setResultAPI2(data);
-      })
-      .catch((err) => console.error(err)); 
-  },); 
+
 
   // Fonction qui gère les props de ComicsCard
   // ".message" est le message d'erreur dans l'API
@@ -51,16 +43,10 @@ const Comics: React.FC = () => {
         </div>
         
         ))}
-        {resultAPI2?.map(item => (
-        
-        <div className="basis-1/3 p-5">
-          
-          <CharactersCard post={post}/>
-        </div>
-        
-        ))}
     </div>
+
   );
+
 };
-//<CharactersCard post={post}/> 
+
 export default Comics;

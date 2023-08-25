@@ -1,7 +1,7 @@
 import React from 'react';
-import { Image, Button } from 'antd';
+import { Image } from 'antd';
 
-const YourComponent: React.FC = () => {
+const CharactersImg: React.FC = () => {
   const characters = [
     'https://i.ibb.co/5hxqBVw/ai-generated-8098396-1280.png',
     'https://i.ibb.co/n3Ly567/ai-generated-8154910-1280.jpg',
@@ -22,7 +22,7 @@ const YourComponent: React.FC = () => {
 
   return (
     <div className="flex">
-      {characters.map((imageUrl, index) => (
+            {characters.map((imageUrl, index) => (
         <div key={index} className="mr-4">
           <Image.PreviewGroup items={characters}>
             <Image className="w-48 h-48" src={imageUrl} />
@@ -34,4 +34,8 @@ const YourComponent: React.FC = () => {
   );
 };
 
+
+export default CharactersImg;
+=======
 export default YourComponent;
+

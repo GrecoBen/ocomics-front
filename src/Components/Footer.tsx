@@ -3,18 +3,16 @@ import { FacebookOutlined, TwitterOutlined, InstagramOutlined } from "@ant-desig
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer">
+    <footer className="footer bg-blue-900">
+      
       <a href="http://design.wonderflow.ai/get-started/symbols#facebook" target="_blank" rel="noopener noreferrer">
         <FacebookOutlined className="text-4xl" /> 
-       
       </a>
       <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
         <TwitterOutlined className="text-4xl" /> 
-        
       </a>
       <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
         <InstagramOutlined className="text-4xl" /> 
-        
       </a>
     </footer>
   );

@@ -6,7 +6,7 @@ const contentStyle: React.CSSProperties = {
   color: '#fff',
   lineHeight: '350px',
   textAlign: 'center',
-  background: 'grey',
+  background: '#1E3A8A',
 };
 
 const Slider = [
@@ -19,13 +19,29 @@ const Slider = [
 ];
 
 const App: React.FC = () => (
-  <Carousel autoplay>
-    {Slider.map((imageUrl, index) => (
-      <div key={index}>
-        <img src={imageUrl} alt={`Slide-${index}`} style={{ ...contentStyle, width: '100%' }} />
-      </div>
-    ))}
-  </Carousel>
+  <div className="">
+    <div className="p-8 text-center">
+      <h1 className="text-2xl font-bold mb-4">Bienvenue Sur O'Comics</h1>
+      <p className="">
+        O/comics est la plateforme idéale pour les passionnés de comics. Découvrez de nouveaux comics, échangez avec d'autres membres et complétez vos collections.
+      </p>
+      <p>
+        Rejoignez notre communauté pour partager votre passion et discuter avec d'autres fans de comics!
+      </p>
+    </div>
+    <Carousel autoplay>
+      {Slider.map((imageUrl, index) => (
+        <div key={index} className="w-full">
+          <img
+            src={imageUrl}
+            alt={`Slide-${index}`}
+            style={{ ...contentStyle, width: '100%', objectFit: 'contain' }}
+            className="max-h-96 mx-auto"
+          />
+        </div>
+      ))}
+    </Carousel>
+  </div>
 );
 
 export default App;

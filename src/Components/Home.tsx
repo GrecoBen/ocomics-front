@@ -6,7 +6,7 @@ import Comics from './Comics';
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <div className=''>
       <NavBar />
       <Carousel />
       <Comics />

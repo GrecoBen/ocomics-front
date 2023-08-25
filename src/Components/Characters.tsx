@@ -1,8 +1,10 @@
 import React from 'react';
 import { Image, Button } from 'antd';
 
-const YourComponent: React.FC = () => {
-  const characters = [
+const CharacterImage: React.FC = () => {
+
+  
+  /*const characters = [
     'https://i.ibb.co/5hxqBVw/ai-generated-8098396-1280.png',
     'https://i.ibb.co/n3Ly567/ai-generated-8154910-1280.jpg',
     'https://i.ibb.co/dBQx2gM/captain-america-6789190-1280.jpg',
@@ -31,7 +33,7 @@ const YourComponent: React.FC = () => {
         </div>
       ))}
     </div>
-  );
+  );*/
 };
 
-export default YourComponent;
+export default CharacterImage;

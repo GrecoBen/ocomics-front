@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
-      <ul className="flex justify-center space-x-8">
+      <ul className="flex justify-center space-x-8 font-semibold">
         <li className="nav-item">
-          <Link to="/Acceuil" className="nav-link">Acceuil</Link>
+          <Link to="/Acceuil" className="nav-link">Accueil</Link>
         </li>
         <li className="nav-item">
           <Link to="/Comics" className="nav-link">Comics</Link>

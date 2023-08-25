@@ -1,6 +1,4 @@
-
 import React from 'react';;
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './Components/Footer';
 import Characters from './Components/Characters';
@@ -15,7 +13,7 @@ const App: React.FC = () => {
       <Router>  
       <NavBar />      
         <Routes>   
-        <Route path="/" element={<Home />} />                 
+          <Route path="/" element={<Home />} />                 
           <Route path="/Home" element={<Home />} />
           <Route path="/comicsCard" element={<Comics />} />
           <Route path="/characters" element={<Characters />} /> 

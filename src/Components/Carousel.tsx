@@ -6,7 +6,7 @@ const contentStyle: React.CSSProperties = {
   color: '#fff',
   lineHeight: '350px',
   textAlign: 'center',
-  background: '#1E3A8A',
+  background: '#F8BE26',
   border: '#5B21B5',
 };
 
@@ -17,13 +17,14 @@ const Slider = [
   "https://i.ibb.co/XyQn0zj/marvel-3165096-1280.jpg",
   "https://i.ibb.co/Y0ky8kj/spiderman-8158916-1280.png",
   "https://i.ibb.co/bJRxSCr/the-incredible-hulk-7471339-1280.jpg"
+
 ];
 
-const App: React.FC = () => (
+const Carou: React.FC = () => (
   <div className="flex flex-col h-scream ">
     <div className="container mx auto p-8 text-center">
-      <h1 className="rounded-lg bg-black bg-opacity-20 px-2 py-1 text-center text-3xl font-stencil font-semibold text-violet-800">Bienvenue Sur O'Comics</h1>
-      <p className="rounded-lg bg-black bg-opacity-20 px-2 py-1 text-center text-1xl font-stencil font-semibold text-violet-800">
+      <h1 className="rounded-lg bg-black bg-opacity-20 px-2 py-1 text-center text-3xl font-stencil font-semibold text-white">Bienvenue Sur O'Comics</h1>
+      <p className="rounded-lg bg-black bg-opacity-20 px-2 py-1 text-center text-1xl font-stencil font-semibold text-white">
         O'comics est la plateforme idéale pour les passionnés de comics. Découvrez de nouveaux comics, échangez avec d'autres membres et complétez vos collections.        
         Rejoignez notre communauté pour partager votre passion et discuter avec d'autres fans de comics!
       </p>
@@ -43,4 +44,4 @@ const App: React.FC = () => (
   </div>
 );
 
-export default App;
+export default Carou;

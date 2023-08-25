@@ -1,18 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
-      <ul className="flex justify-center space-x-8">
-        <li className="nav-item">
+      <ul className="flex justify-center space-x-8">     
+        <li className="nav-item"> 
+           
           <a href="/Home" className="nav-link">Accueil</a>
         </li>
         <li className="nav-item">
-          <Link to="/Comics" className="nav-link">Comics</Link>
+          <a href="/Comics" className="nav-link">Comics</a>
         </li>
         <li className="nav-item">
-          <Link to="/ma-liste" className="nav-link">Ma liste</Link>
+          <a  href="/ma-liste" className="nav-link">Ma liste</a>
         </li>
         <li className="nav-item">
           <a href="/Personnages" className="nav-link">Personnages</a>

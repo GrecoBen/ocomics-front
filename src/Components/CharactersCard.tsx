@@ -8,9 +8,8 @@ type Props = {
 const CharactersCard: React.FC<Props> = ({post}) => {
   return (
     <div>
+        <img src={post.poster} alt={post.name}></img>
         <div>{post.name}</div>
-        <div>{post.alias}</div>
-        <div>{post.released_at}</div>
     </div>
   );
   

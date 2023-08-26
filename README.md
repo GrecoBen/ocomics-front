@@ -9,3 +9,6 @@ npm i react-router-dom
  Libirairie:
 -npm install antd --save
 -npm install @ant-design/icons --save
+
+Lancer le serveur :
+npm run dev

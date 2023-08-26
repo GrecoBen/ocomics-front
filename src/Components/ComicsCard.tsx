@@ -16,7 +16,7 @@ const ComicsCard: React.FC<Props> = ({ card }) => {
     </div>
     <div className=" p-4 flex justify-evenly">
       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">I have it</button>
-      <button className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">Je need it</button>
+      <button className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">I want it</button>
     </div>
   </div>
   );

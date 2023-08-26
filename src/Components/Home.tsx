@@ -3,6 +3,7 @@ import Characters from './Characters';
 import Carousel from '../Components/Carousel';
 import Comics from './Comics';
 import NavBar from './NavBar';
+
 const Home: React.FC = () => {
   return (
 

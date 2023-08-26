@@ -18,7 +18,7 @@ const Slider = [
   "https://i.ibb.co/bJRxSCr/the-incredible-hulk-7471339-1280.jpg"
 ];
 
-const App: React.FC = () => (
+const Carou: React.FC = () => (
   <div className="">
     <div className="p-8 text-center">
       <h1 className="text-2xl font-bold mb-4">Bienvenue Sur O'Comics</h1>
@@ -45,4 +45,4 @@ const App: React.FC = () => (
   </div>
 );
 
-export default App;
+export default Carou;

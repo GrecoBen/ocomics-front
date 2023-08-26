@@ -32,12 +32,12 @@ const Comics: React.FC = () => {
     }; */
 
   return (
-    <div className="flex flex-wrap place-content-center mx-56">
+    <div className="grid grid-cols-3 my-10 gap-5">
       {/* <SearchBar search={search} setSearch={setSearch}/>
       <ComicsCard cards={cardPicker()}/> */}
       {resultAPI?.map(item => (
         
-        <div className="basis-1/3 p-5">
+        <div className="basis-1/4">
           <ComicsCard card={item}/>
 
         </div>

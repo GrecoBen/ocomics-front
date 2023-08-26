@@ -2,12 +2,13 @@ import React from 'react';
 import Characters from './Characters';
 import Carousel from '../Components/Carousel';
 import Comics from './Comics';
+
 import NavBar from './NavBar';
 
 const Home: React.FC = () => {
   return (
 
-    <div className=''>
+    <div className="bg-slate-900 min-h-screen">
       <NavBar />
       <Carousel />
       <Comics />
@@ -21,6 +22,7 @@ const Home: React.FC = () => {
       </p>
       </div>
         
+
     </div>
   );
 };

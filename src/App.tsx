@@ -9,7 +9,7 @@ import NavBar from './Components/NavBar';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className="">
       <Router>  
            
         <Routes>   
@@ -19,7 +19,7 @@ const App: React.FC = () => {
           <Route path="/characters" element={<Characters />} /> 
           <Route path="/register" element={<Register />} />                   
         </Routes>                    
-        <Footer />
+        
       </Router>
     </div>
   );

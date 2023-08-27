@@ -16,6 +16,8 @@ export type Card = { // pour pas avoir d'erreur (message est ce qui apparait en 
     poster? :string;
   };
 
+
+
   export type ResultAPI = {
     message? :string;// pour pas avoir d'erreur (message est ce qui apparait en cas d'erreur)
     items? :Card[];

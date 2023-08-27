@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
 
 
 const Navbar: React.FC = () => {
@@ -24,9 +23,15 @@ const Navbar: React.FC = () => {
           <a href ="/register" className="nav-link  ">Se connecter</a>
         </li>
       </ul>
+      <div>
+        <input />
+      </div>
     </nav>
     
   );
 };
+
+
+
 
 export default Navbar;

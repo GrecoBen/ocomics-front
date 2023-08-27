@@ -50,12 +50,12 @@ const CharacterImage: React.FC = () => {
     </div>
   );*/
   return (
-    <div className="flex flex-wrap place-content-center mx-56">
+    <div className="flex flex-wrap place-content-center mb-10">
       {/* <SearchBar search={search} setSearch={setSearch}/>
       <ComicsCard cards={cardPicker()}/> */}
       {resultAPI2?.map(post => (
         
-        <div className="basis-1/3 p-5">
+        <div className="basis-1/6 h-[350px]">
           <CharactersCard post={post}/>
 
         </div>

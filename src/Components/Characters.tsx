@@ -50,7 +50,7 @@ const CharacterImage: React.FC = () => {
     </div>
   );*/
   return (
-    <div className="flex flex-wrap place-content-center mb-10">
+    <div className="flex flex-wrap grid grid-cols-2 md:grid-cols-6 place-content-center mb-10">
       {/* <SearchBar search={search} setSearch={setSearch}/>
       <ComicsCard cards={cardPicker()}/> */}
       {resultAPI2?.map(post => (

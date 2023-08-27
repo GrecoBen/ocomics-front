@@ -32,7 +32,7 @@ const Comics: React.FC = () => {
     }; */
 
   return (
-    <div className="grid grid-cols-3 my-10 gap-5">
+    <div className="grid grid-cols-1 lg:grid-cols-3 my-10 md:my-16 gap-5">
       {/* <SearchBar search={search} setSearch={setSearch}/>
       <ComicsCard cards={cardPicker()}/> */}
       {resultAPI?.map(item => (

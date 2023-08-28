@@ -1,6 +1,7 @@
 import React from 'react'
 import { Character } from '../types'
 import '../assets/styles/styles.css';
+import Footer from './Footer';
 
 
 type Props = {
@@ -19,12 +20,13 @@ const CharactersCard: React.FC<Props> = ({post}) => {
           className="object-cover h-full w-full" 
         />
       </div>
+     
+
     
   );
   
 };
-
-
+<Footer />
 /* A AJOUTER EN CSS dans le className de l'image au dessus pour les rendre beaucoup plus beau
 
 

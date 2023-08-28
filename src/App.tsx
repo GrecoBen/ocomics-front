@@ -1,14 +1,40 @@
 import React from 'react';;
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
+import Footer from './Components/Footer';
+import Characters from './Components/Characters';
+import Home from './Pages/Home';
+import Comics from './Components/Comics';
+import Register from './Components/Register';
+import NavBar from './Components/NavBar';
+import ComicsPage from './Pages/ComicsPage';
+
+const App: React.FC = () => {
+  return(
+  <BrowserRouter>
+      <Routes>
+      <Route path="/comics" element={<ComicsPage/>} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
+
+/*
+
+
+import React from 'react';;
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './Components/Footer';
 import Characters from './Components/Characters';
-import Home from './Components/Home';
+import Home from './Pages/Home';
 import Comics from './Components/Comics';
 import Register from './Components/Register';
 import NavBar from './Components/NavBar';
 
-const App: React.FC = () => {
-  return (
+
+
+return (
     <div className="">
       <Router>  
            
@@ -23,6 +49,5 @@ const App: React.FC = () => {
       </Router>
     </div>
   );
-};
 
-export default App;
+*/

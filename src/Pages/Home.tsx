@@ -1,10 +1,10 @@
 import React from 'react';
-import Characters from './Characters';
+import Characters from '../Components/Characters';
 import Carousel from '../Components/Carousel';
-import Comics from './Comics';
+import Comics from '../Components/Comics';
 
-import NavBar from './NavBar';
-import Footer from './Footer';
+import NavBar from '../Components/NavBar';
+import Footer from '../Components/Footer';
 
 
 const Home: React.FC = () => {

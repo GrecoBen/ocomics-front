@@ -7,22 +7,19 @@ const Navbar: React.FC = () => {
   return (
     <nav className="container mx-auto bg-yellow-500">
       <div className="flex h-14 items-center justify-between border-slate-200">
-          <img className="h-12 w-24 rounded-md cursor-pointer" src={Logo} alt="" />
+          <Link to="/"> <img className="h-12 w-24 rounded-md cursor-pointer" src={Logo} alt="" /></Link>
           <ul className="hidden gap-8 text-sm font-semibold md:flex">
             <li>
-              <a href="/" className='hover:bg-yellow-600'>Accueil</a>
+              <Link to="/Comics" className='hover:bg-yellow-600'>Comics</Link>
             </li>
             <li>
-              <Link to="/Comics">Comics</Link>
+            <Link to="/Personnages" className='hover:bg-yellow-600'>Personnages</Link>
             </li>
             <li>
-              <a  href="/ma-liste" className='hover:bg-yellow-600'>Ma liste</a>
-            </li>
-            <li>
-              <a href ="/Personnages" className='hover:bg-yellow-600'>Personnages</a>
+            <Link to="/Inscription" className='hover:bg-yellow-600'>Inscription</Link>
             </li>
             <li >
-              <a href ="/register" className='hover:bg-yellow-600'>Se connecter</a>
+            <Link to="/register" className='hover:bg-yellow-600'>Se connecter</Link>
             </li>
           </ul>
           <div className="flex gap-4">
@@ -38,6 +35,11 @@ const Navbar: React.FC = () => {
 };
 
  /*
+
+<Link to="/ma-liste" className='hover:bg-yellow-600'>Ma Liste</Link>
+<Link to="/Personnages" className='hover:bg-yellow-600'>Personnages</Link>
+<Link to="/register" className='hover:bg-yellow-600'>Se connecter</Link>
+
  <a href="/Comics" className='hover:bg-yellow-600' >Comics</a>
 
  <div className='mx-10 bg-amber-400'>

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Components/Pages/Home';
 import Comics from './Components/Comics';
 import Register from './Components/Register';
-import CharactersList from './Components/CharactersList';
+import CharactersList from './Components/Pages/CharactersList';
 const App: React.FC = () => {
   return (
     <div className="">

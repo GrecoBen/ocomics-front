@@ -12,6 +12,7 @@ const App: React.FC = () => {
   return(
   <BrowserRouter>
       <Routes>
+      <Route path="/" element={<Home />} />
       <Route path="/comics" element={<ComicsPage/>} />
       </Routes>
     </BrowserRouter>
@@ -22,6 +23,7 @@ export default App;
 
 /*
 
+<Route path="/" element={<Home />} />
 
 import React from 'react';;
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';

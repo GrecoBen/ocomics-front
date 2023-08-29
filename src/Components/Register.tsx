@@ -12,6 +12,7 @@ const Register: React.FC = () => {
 
   return (
     <div>
+      <a href="/" className='hover:bg-yellow-600'>Accueil</a>
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
         <h1 className="text-3xl font-semibold mb-4">

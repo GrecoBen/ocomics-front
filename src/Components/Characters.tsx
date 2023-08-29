@@ -13,7 +13,7 @@ const CharacterImage: React.FC = () => {
         console.log(data);
         setResultAPI2(data);
       })
-      .catch((err) => console.error(err)); 
+      // .catch((err) => console.error(err)); 
   },); 
   
   return (
@@ -39,4 +39,3 @@ export default CharacterImage;
 function setResultAPI2(data: any) {
   throw new Error('Function not implemented.');
 }
-

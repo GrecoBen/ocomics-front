@@ -2,8 +2,7 @@ import React from 'react';;
 
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './Pages/Home';
-import Comics from './Components/Comics';
-import Register from './Components/Register';
+import Registerr from './Components/Registerr';
 import CharactersList from './Pages/CharactersList';
 import ComicsPage from './Pages/ComicsPage';
 
@@ -14,6 +13,7 @@ const App: React.FC = () => {
       <Route path="/" element={<Home />} />
       <Route path="/comics" element={<ComicsPage/>} />
       <Route path="/Personnages" element={<CharactersList/>} />
+      <Route path="/register" element={<Registerr/>} />
       </Routes>
     </BrowserRouter>
   );
@@ -23,31 +23,5 @@ export default App;
 
 /*
 
-<Route path="/" element={<Home />} />
-
-import React from 'react';;
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Footer from './Components/Footer';
-import Characters from './Components/Characters';
-import Home from './Pages/Home';
-import Comics from './Components/Comics';
-import Register from './Components/Register';
-import NavBar from './Components/NavBar';
-
-
-
-return (
-    <div className="">
-      <Router>            
-        <Routes>   
-          <Route path="/" element={<Home />} />                 
-          <Route path="/Home" element={<Home />} />
-          <Route path="/comicsCard" element={<Comics />} />
-          <Route path="/characters" element={<CharactersList />} /> 
-          <Route path="/register" element={<Register />} />                   
-        </Routes>                            
-      </Router>
-         </div>    
-  );
 
 */

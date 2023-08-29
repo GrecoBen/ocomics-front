@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from '../NavBar';
-import Footer from '../Footer';
-import Characters from '../Characters';
+import Navbar from '../Components/NavBar';
+import Footer from '../Components/Footer';
+import Characters from '../Components/Characters';
 
 const CharacterImage: React.FC = () => {
 return (

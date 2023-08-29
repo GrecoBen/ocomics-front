@@ -1,10 +1,11 @@
 import React from 'react';;
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Components/Pages/Home';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import Home from './Pages/Home';
 import Comics from './Components/Comics';
 import Register from './Components/Register';
-import CharactersList from './Components/Pages/CharactersList';
+import CharactersList from './Pages/CharactersList';
+import ComicsPage from './Pages/ComicsPage';
 
 const App: React.FC = () => {
   return(
@@ -12,7 +13,7 @@ const App: React.FC = () => {
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/comics" element={<ComicsPage/>} />
-      
+      <Route path="/Personnages" element={<CharactersList/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,5 @@
 import React from 'react';;
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Characters from './Components/Characters';
 import Home from './Components/Pages/Home';
 import Comics from './Components/Comics';
 import Register from './Components/Register';

@@ -1,12 +1,10 @@
 import React from 'react';;
-import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
-import Footer from './Components/Footer';
-import Characters from './Components/Characters';
-import Home from './Pages/Home';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Components/Pages/Home';
 import Comics from './Components/Comics';
 import Register from './Components/Register';
-import NavBar from './Components/NavBar';
-import ComicsPage from './Pages/ComicsPage';
+import CharactersList from './Components/Pages/CharactersList';
 
 const App: React.FC = () => {
   return(
@@ -39,18 +37,16 @@ import NavBar from './Components/NavBar';
 
 return (
     <div className="">
-      <Router>  
-           
+      <Router>            
         <Routes>   
           <Route path="/" element={<Home />} />                 
           <Route path="/Home" element={<Home />} />
           <Route path="/comicsCard" element={<Comics />} />
-          <Route path="/characters" element={<Characters />} /> 
+          <Route path="/characters" element={<CharactersList />} /> 
           <Route path="/register" element={<Register />} />                   
-        </Routes>                    
-        
+        </Routes>                            
       </Router>
-    </div>
+         </div>    
   );
 
 */

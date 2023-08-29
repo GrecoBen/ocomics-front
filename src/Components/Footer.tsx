@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
       
       <div className = "flex h-12 justify-end flex space-x-2 ">
       
-        <a href="http://design.wonderflow.ai/get-started/symbols#facebook" target="_blank" rel="noopener noreferrer">
+        <a href="https://fr-fr.facebook.com/" target="_blank" rel="noopener noreferrer">
           <FacebookOutlined className="text-4xl " /> 
         </a>
         <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">

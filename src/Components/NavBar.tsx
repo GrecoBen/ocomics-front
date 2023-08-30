@@ -17,10 +17,10 @@ const Navbar: React.FC = () => {
             <Link to="/Personnages" className='hover:bg-yellow-600'>Personnages</Link>
             </li>
             <li>
-            <Link to="/Inscription" className='hover:bg-yellow-600'>Inscription</Link>
+            <Link to="/register" className='hover:bg-yellow-600'>Inscription</Link>
             </li>
             <li >
-            <Link to="/register" className='hover:bg-yellow-600'>Se connecter</Link>
+            <Link to="/login" className='hover:bg-yellow-600'>Se connecter</Link>
             </li>
           </ul>
           <div className="flex gap-4">

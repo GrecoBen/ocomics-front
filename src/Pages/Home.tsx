@@ -2,9 +2,9 @@ import React from 'react';
 import Characters from '../Components/Characters';
 import Carousel from '../Components/Carousel';
 import Comics from '../Components/Comics';
-
 import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
+import SearchBar from '../Components/SearchBar';
 
 
 const Home: React.FC = () => {
@@ -15,7 +15,7 @@ const Home: React.FC = () => {
       <div className='mx-10 md:mx-20'>
         <NavBar />
       </div>
-      
+    
       <div><Carousel /></div>
       <section className="mx-40 lg:mx-56">
         <h1 className='text-white font-bold mb-1 text-xl inline-block p-2 bg-red-700 my-5 '>LES NOUVEAUTÉS</h1>

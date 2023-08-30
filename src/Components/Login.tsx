@@ -3,7 +3,7 @@ import AuthContext from "../context/AuthProvider";
 import "../assets/styles/login.css"
 import axios from 'axios';
 
-const LOGIN_URL = '/';
+const LOGIN_URL = 'http://0.0.0.0:8080/api/login';
 
 
 const Login = () => {

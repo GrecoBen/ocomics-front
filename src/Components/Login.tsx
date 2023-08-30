@@ -3,7 +3,7 @@ import AuthContext from "../context/AuthProvider";
 import "../assets/styles/login.css"
 import axios from 'axios';
 
-const LOGIN_URL = 'http://0.0.0.0:8080/api/login';
+const LOGIN_URL = 'http://localhost:8080/api/login_check';
 
 
 const Login = () => {
@@ -15,6 +15,7 @@ const Login = () => {
     const [password, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
+    console.log(email, password);
 
     useEffect(() => {
         userRef.current.focus();
@@ -35,15 +36,19 @@ const Login = () => {
                     withCredentials: true
                 }
             );
-            console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response));
-            const accessToken = response?.data?.accessToken;
+        
+            console.log(JSON.stringify(response.data));
+            const accessToken = response?.data?.token;
             const roles = response?.data?.roles;
+        
+            // Stocker le token en localStorage
+            localStorage.setItem('accessToken', accessToken);
+        
             setAuth({ email, password, roles, accessToken });
             setEmail('');
             setPwd('');
             setSuccess(true);
-        } catch (err) {
+        } catch (err) { 
             if (!err?.response) {
                 setErrMsg('No Server Response');
             } else if (err.response?.status === 400) {

@@ -21,7 +21,8 @@ const Login = () => {
     const [password, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     
-    console.log(email, password);
+
+    console.log(email, password, firstname);
 
     useEffect(() => {
         userRef.current.focus();

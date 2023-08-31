@@ -6,6 +6,7 @@ export type Card = { // pour pas avoir d'erreur (message est ce qui apparait en 
     poster? :string;
     released_at? :string;
     synopsis? :string;
+    id? :number;
     // signifie que l'on peut avoir n'importe quel clé avec tous les noms possibles et 
     // avec des valeurs de n'importe quel type
   };

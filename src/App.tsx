@@ -10,7 +10,7 @@ import OwnPage from './Pages/OwnPage';
 import WishPage from './Pages/WishPage';
 import Unauthorized from './Components/Unauthorized';
 import RequireAuth from './Components/RequireAuth';
-import Administration from './Components/Lounge';
+import Administration from './Components/Administration';
 
 const App: React.FC = () => {
   return (
@@ -25,9 +25,10 @@ const App: React.FC = () => {
           <Route path="/login" element={<Login/>} />
           <Route path="/unauthorized" element={<Unauthorized/>} />
             {/*protected routes*/}
-          <Route element={<RequireAuth/>} >
+          <Route element={<RequireAuth allowedRoles={[]}/>} >
             <Route path="/ownlist" element={<OwnPage/>} />
             <Route path="/wishlist" element={<WishPage/>} />
+            
             <Route path="/administration" element={<Administration/>} />  
           </Route>
         </Route>

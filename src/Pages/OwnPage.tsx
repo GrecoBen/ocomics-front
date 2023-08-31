@@ -8,6 +8,8 @@ const OwnPage = () => {
   return (
     <section>
         <Navbar />
+        <h1>Voici les comics en ta possession</h1>
+        <p>Comics à afficher</p>
         <Footer />
     </section>
   )

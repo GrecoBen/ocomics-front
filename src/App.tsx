@@ -5,6 +5,7 @@ import CharactersList from './Pages/CharactersList';
 import ComicsPage from './Pages/ComicsPage';
 import Register from './Components/Register';
 import Login from './Components/Login';
+import CharacterComicsPage from './Pages/CharacterComicsPage';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,8 @@ const App: React.FC = () => {
       <Route path="/Personnages" element={<CharactersList/>} />
       <Route path="/register" element={<Register/>} />
       <Route path="/login" element={<Login/>} />
+      <Route path="/character-comics/:characterId" element={<CharacterComicsPage />} />
+
 
       </Routes>
     </BrowserRouter>

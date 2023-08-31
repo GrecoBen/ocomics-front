@@ -11,11 +11,14 @@ import WishPage from './Pages/WishPage';
 import Unauthorized from './Components/Unauthorized';
 import RequireAuth from './Components/RequireAuth';
 import Administration from './Components/Lounge';
+import CharacterComicsPage from './Pages/CharacterComicsPage';
+
 
 const App: React.FC = () => {
   return (
     
       <Routes>
+
         <Route path="/" element={<Layout />} >
             {/*public routes*/}
           <Route path="/" element={<Home />} />
@@ -24,6 +27,7 @@ const App: React.FC = () => {
           <Route path="/register" element={<Register/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/unauthorized" element={<Unauthorized/>} />
+          <Route path="/character-comics/:characterId" element={<CharacterComicsPage />} />
             {/*protected routes*/}
           <Route element={<RequireAuth/>} >
             <Route path="/ownlist" element={<OwnPage/>} />
@@ -31,6 +35,7 @@ const App: React.FC = () => {
             <Route path="/administration" element={<Administration/>} />  
           </Route>
         </Route>
+
       </Routes>
     
   );

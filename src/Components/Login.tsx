@@ -1,5 +1,6 @@
-import { useRef, useState, useEffect, useContext } from 'react';
-import AuthContext from "../context/AuthProvider";
+import { useRef, useState, useEffect } from 'react';
+import useAuth from '../hooks/useAuth';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import "../assets/styles/login.css"
 import axios from 'axios';
 
@@ -7,14 +8,19 @@ const LOGIN_URL = 'http://localhost:8080/api/login_check';
 
 
 const Login = () => {
-    const { setAuth } = useContext(AuthContext);
+    const { setAuth } = useAuth();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const userRef = useRef();
     const errRef = useRef();
 
     const [email, setEmail] = useState('');
     const [password, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
-    const [success, setSuccess] = useState(false);
+    
     console.log(email, password);
 
     useEffect(() => {
@@ -47,7 +53,7 @@ const Login = () => {
             setAuth({ email, password, roles, accessToken });
             setEmail('');
             setPwd('');
-            setSuccess(true);
+            navigate(from, {replace: true});
         } catch (err) { 
             if (!err?.response) {
                 setErrMsg('No Server Response');
@@ -63,52 +69,53 @@ const Login = () => {
     }
 
     return (
-        <>
-            {success ? (
-                <section>
-                    <h1>Vous êtes connecté !</h1>
-                    <br />
-                    <p>
-                        <a href="/">Retourner à l'accueil</a>
-                    </p>
-                </section>
-            ) : (
-                <section>
-                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                    <h1>Se connecter</h1>
-                    <form onSubmit={handleSubmit}>
-                        <label htmlFor="email">Adresse e-mail:</label>
-                        <input
-                            type="text"
-                            id="email"
-                            ref={userRef}
-                            autoComplete="off"
-                            onChange={(e) => setEmail(e.target.value)}
-                            value={email}
-                            required
-                        />
+        
+        <section>
+            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+            <h1>Se connecter</h1>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="email">Adresse e-mail:</label>
+                <input
+                type="text"
+                id="email"
+                ref={userRef}
+                autoComplete="off"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                required
+                />
 
-                        <label htmlFor="password">Mot de passe:</label>
-                        <input
-                            type="password"
-                            id="password"
-                            onChange={(e) => setPwd(e.target.value)}
-                            value={password}
-                            required
-                        />
-                        <button>Se connecter</button>
-                    </form>
-                    <p>
-                        Nouvel utilisateur ?<br />
-                        <span className="line">
-                            {/*put router link here*/}
-                            <a href="/register">Inscrivez-vous !</a>
-                        </span>
-                    </p>
-                </section>
-            )}
-        </>
+                <label htmlFor="password">Mot de passe:</label>
+                <input
+                type="password"
+                id="password"
+                onChange={(e) => setPwd(e.target.value)}
+                value={password}
+                required
+                />
+                <button>Se connecter</button>
+            </form>
+            <p>
+                Nouvel utilisateur ?<br />
+                <span className="line">
+                    {/*put router link here*/}
+                    <a href="/register">Inscrivez-vous !</a>
+                    
+                </span>
+                
+            </p>
+                <span>
+                    <a href="/">Accueil</a>
+                </span>
+        </section>
+        
     )
 }
 
 export default Login;
+
+/* 
+
+
+
+*/

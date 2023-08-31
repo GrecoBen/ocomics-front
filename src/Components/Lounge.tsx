@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom"
 
-const Lounge = () => {
+const Administration = () => {
     return (
         <section>
-            <h1>The Lounge</h1>
+            <h1>Administration</h1>
             <br />
-            <p>Admins and Editors can hang out here.</p>
+            <p>Les administrateurs et les rédacteurs peuvent se retrouver ici.</p>
             <div className="flexGrow">
-                <Link to="/">Home</Link>
+                <Link to="/">Accueil</Link>
             </div>
         </section>
     )
 }
 
-export default Lounge;
+export default Administration;

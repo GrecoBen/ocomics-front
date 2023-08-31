@@ -9,7 +9,8 @@ import Layout from './Components/Layout';
 import OwnPage from './Pages/OwnPage';
 import WishPage from './Pages/WishPage';
 import Unauthorized from './Components/Unauthorized';
-import Lounge from './Components/Lounge';
+import RequireAuth from './Components/RequireAuth';
+import Administration from './Components/Lounge';
 
 const App: React.FC = () => {
   return (
@@ -24,9 +25,11 @@ const App: React.FC = () => {
           <Route path="/login" element={<Login/>} />
           <Route path="/unauthorized" element={<Unauthorized/>} />
             {/*protected routes*/}
-          <Route path="/ownlist" element={<OwnPage/>} />
-          <Route path="/wishlit" element={<WishPage/>} />
-          <Route path="/lounge" element={<Lounge/>} />  
+          <Route element={<RequireAuth/>} >
+            <Route path="/ownlist" element={<OwnPage/>} />
+            <Route path="/wishlist" element={<WishPage/>} />
+            <Route path="/administration" element={<Administration/>} />  
+          </Route>
         </Route>
       </Routes>
     

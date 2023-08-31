@@ -103,8 +103,13 @@ const Login = () => {
                         <span className="line">
                             {/*put router link here*/}
                             <a href="/register">Inscrivez-vous !</a>
+                            
                         </span>
+                        
                     </p>
+                        <span>
+                            <a href="/">Accueil</a>
+                        </span>
                 </section>
             )}
         </>

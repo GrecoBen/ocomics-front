@@ -3,7 +3,6 @@ import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import "../assets/styles/login.css"
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 
 const LOGIN_URL = 'http://localhost:8080/api/login_check';
@@ -11,6 +10,23 @@ const LOGIN_URL = 'http://localhost:8080/api/login_check';
 
 
 const Login = () => {
+
+    useEffect(() => {
+        const token = localStorage.getItem('accessToken'); 
+    
+        fetch('http://localhost:8080/api/user', {
+          method: 'GET',
+          headers: {
+            Authorization: 'Bearer ${token}', 
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((err) => console.error(err));
+      }, []);
+
     const { setAuth } = useAuth();
 
     const navigate = useNavigate();

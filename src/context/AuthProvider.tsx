@@ -6,7 +6,7 @@ const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState({});
 
-    useEffect(() => {
+ /*   useEffect(() => {
         const value = JSON.parse(window.localStorage.getItem('auth'));
         if (Object.keys(value).length > 0) {
             console.log(value)
@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
             window.localStorage.setItem('auth', JSON.stringify(auth));
         }
     }, [auth])
-
+*/
     return (
         <AuthContext.Provider value={{ auth, setAuth }}>
             {children}

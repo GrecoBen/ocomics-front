@@ -22,7 +22,7 @@ const Login = () => {
     const [errMsg, setErrMsg] = useState('');
     
 
-    console.log(email, password, firstname);
+    console.log(email, password);
 
     useEffect(() => {
         userRef.current.focus();
@@ -37,7 +37,7 @@ const Login = () => {
 
         try {
             const response = await axios.post(LOGIN_URL,
-                JSON.stringify({ email, password }),
+                JSON.stringify({ 'email': email, 'password': password }),
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
@@ -51,7 +51,12 @@ const Login = () => {
             // Stocker le token en localStorage
             localStorage.setItem('accessToken', accessToken);
         
-            setAuth({ email, password, roles, accessToken });
+            setAuth({ 
+                'email': email, 
+                'password': password, 
+                'roles': roles, 
+                'accessToken': accessToken 
+            });
             setEmail('');
             setPwd('');
             navigate(from, {replace: true});

@@ -25,10 +25,9 @@ const App: React.FC = () => {
           <Route path="/login" element={<Login/>} />
           <Route path="/unauthorized" element={<Unauthorized/>} />
             {/*protected routes*/}
-          <Route element={<RequireAuth allowedRoles={[]}/>} >
+          <Route element={<RequireAuth/>} >
             <Route path="/ownlist" element={<OwnPage/>} />
             <Route path="/wishlist" element={<WishPage/>} />
-            
             <Route path="/administration" element={<Administration/>} />  
           </Route>
         </Route>

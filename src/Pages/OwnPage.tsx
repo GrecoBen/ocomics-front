@@ -5,6 +5,8 @@ import Navbar from '../Components/NavBar';
 
 
 const OwnPage = () => {
+
+
   return (
     <section>
         <Navbar />

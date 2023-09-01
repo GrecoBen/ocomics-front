@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import "../assets/styles/login.css"
 import axios from 'axios';
 
 
@@ -125,13 +124,13 @@ const Login = () => {
                 Nouvel utilisateur ?<br />
                 <span className="line">
                     {/*put router link here*/}
-                    <a href="/register">Inscrivez-vous !</a>
+                    <Link to="/register">Inscrivez-vous !</Link>
                     
                 </span>
                 
             </p>
                 <span>
-                    <a href="/">Accueil</a>
+                    <Link to="/">Accueil</Link>
                 </span>
         </section>
         

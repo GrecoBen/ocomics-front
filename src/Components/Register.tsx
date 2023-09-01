@@ -84,9 +84,7 @@ const Register = () => {
 
     return (
         <>
-        <div>
-        <Link to="/">Retour à la page d'accueil</Link>
-        </div>
+        
             {success ? (
                 <section>
                     <h1>Vous avez réussi !</h1>
@@ -180,7 +178,7 @@ const Register = () => {
                         </span>
                     </p>
                     <span>
-                        <a href="/">Accueil</a>
+                        <Link to="/">Accueil</Link>
                     </span>
                 </section>
             )}

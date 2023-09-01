@@ -17,7 +17,7 @@ const Login = () => {
         fetch('http://localhost:8080/api/user', {
           method: 'GET',
           headers: {
-            Authorization: 'Bearer ${token}', 
+            Authorization: `Bearer ${token}`, 
           },
         })
           .then((response) => response.json())
@@ -41,7 +41,7 @@ const Login = () => {
     const [errMsg, setErrMsg] = useState('');
     
 
-    console.log(email, password);
+    //console.log(email, password);
 
     useEffect(() => {
         userRef.current.focus();

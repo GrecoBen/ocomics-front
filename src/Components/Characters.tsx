@@ -13,8 +13,8 @@ const CharacterImage: React.FC = () => {
         console.log(data);
         setResultAPI2(data);
       })
-      // .catch((err) => console.error(err)); 
-  },); 
+      .catch((err) => console.error(err));
+    }, []);
   
   return (
     <div className="flex flex-wrap grid grid-cols-2 md:grid-cols-6 place-content-center mb-10">
@@ -36,6 +36,6 @@ const CharacterImage: React.FC = () => {
 
 export default CharacterImage;
 
-function setResultAPI2(data: any) {
-  throw new Error('Function not implemented.');
-}
+// function setResultAPI2(data: any) {
+//   throw new Error('Function not implemented.');
+// }

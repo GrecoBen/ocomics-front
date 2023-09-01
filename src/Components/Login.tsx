@@ -5,7 +5,9 @@ import "../assets/styles/login.css"
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+
 const LOGIN_URL = 'http://localhost:8080/api/login_check';
+
 
 
 const Login = () => {
@@ -40,7 +42,7 @@ const Login = () => {
                 JSON.stringify({ email, password }),
                 {
                     headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
+                   // withCredentials: true
                 }
             );
         

@@ -179,6 +179,9 @@ const Register = () => {
                             <a href="/login">Connectez-vous !</a>
                         </span>
                     </p>
+                    <span>
+                        <a href="/">Accueil</a>
+                    </span>
                 </section>
             )}
         </>

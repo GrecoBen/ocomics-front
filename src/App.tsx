@@ -10,8 +10,9 @@ import OwnPage from './Pages/OwnPage';
 import WishPage from './Pages/WishPage';
 import Unauthorized from './Components/Unauthorized';
 import RequireAuth from './Components/RequireAuth';
-import Administration from './Components/Lounge';
+import Administration from './Components/Administration';
 import CharacterComicsPage from './Pages/CharacterComicsPage';
+
 
 
 const App: React.FC = () => {

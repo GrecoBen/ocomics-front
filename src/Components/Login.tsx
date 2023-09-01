@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, useContext } from 'react';
 import AuthContext from "../context/AuthProvider";
 import "../assets/styles/login.css"
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const LOGIN_URL = 'http://localhost:8080/api/login_check';
 
@@ -64,6 +65,9 @@ const Login = () => {
 
     return (
         <>
+        <div>
+        <Link to="/">Retour à la page d'accueil</Link>
+        </div>
             {success ? (
                 <section>
                     <h1>Vous êtes connecté !</h1>

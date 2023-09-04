@@ -5,10 +5,13 @@ type Props = {
     own: Card;
 };
 
-const OwnCard: React.FC<Props> = ({own}) => {
+const OwnCard: React.FC<Props> = ({own, user, id, comics}) => {
   return (
     <div key={own.id}>
-        <img src={own.poster} alt={own.title}></img>
+        <div>{own.user.id}</div>
+        <div>{own.user.email}</div>
+        <div>{own.comics.title}</div>
+        <img src={own.user.id.poster} alt={own.title}></img>
     </div>
   )
 };

@@ -22,6 +22,12 @@ const Navbar: React.FC = () => {
             <li >
             <Link to="/login" className='hover:bg-yellow-600'>Se connecter</Link>
             </li>
+            <li >
+            <Link to="/ownlist" className='hover:bg-yellow-600'>OwnList</Link>
+            </li>
+            <li >
+            <Link to="/wishlist" className='hover:bg-yellow-600'>WishList</Link>
+            </li>
           </ul>
           <div className="flex gap-4">
               <input placeholder="recherche..." className="rouned-md w-24 border-2 border-slate-200 md:w-32" type="text" />

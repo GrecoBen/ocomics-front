@@ -8,6 +8,19 @@ import SearchBar from '../Components/SearchBar';
 
 
 const Home: React.FC = () => {
+  const token = localStorage.getItem('accessToken');
+  // Effectue une requête pour obtenir les données de l'utilisateur connecté
+  fetch('http://localhost:8080/api/user', {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => console.error(err));
   return (
 
     <div className="flex flex-col bg-gray-800 min-h-screen ">

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { ResultAPI } from '../types';
+import { Character } from '../types';
 import CharactersCard from './CharactersCard';
 
 const CharacterImage: React.FC = () => {
 
-  const [resultAPI2, setResultAPI2] = useState<ResultAPI[]>();
+  const [resultAPI2, setResultAPI2] = useState<Character[]>();
 
   useEffect(() => {
     fetch('http://localhost:8080/api/character')
@@ -21,8 +21,7 @@ const CharacterImage: React.FC = () => {
       {/* <SearchBar search={search} setSearch={setSearch}/>
       <ComicsCard cards={cardPicker()}/> */}
       {resultAPI2?.map(post => (
-        
-        <div className="basis-1/6 h-[350px]">
+        <div className="basis-1/6 h-[350px]" key={post.id}>
           <CharactersCard post={post}/>
 
         </div>

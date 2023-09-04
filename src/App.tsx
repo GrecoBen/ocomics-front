@@ -13,6 +13,10 @@ import RequireAuth from './Components/RequireAuth';
 import Administration from './Components/Administration';
 import CharacterComicsPage from './Pages/CharacterComicsPage';
 import { AuthProvider } from './context/AuthProvider';
+import CRUD from './Pages/CRUD';
+import BackOffice from './Pages/BackOffice';
+
+
 
 
 const App: React.FC = () => {
@@ -33,7 +37,9 @@ const App: React.FC = () => {
           <Route element={<RequireAuth/>} >
             <Route path="/ownlist" element={<OwnPage/>} />
             <Route path="/wishlist" element={<WishPage/>} />
-            <Route path="/administration" element={<Administration/>} />  
+            <Route path="/administration" element={<Administration/>} />
+            <Route path="/crud" element={<CRUD />} /> 
+            <Route path="/backoffice" element={<BackOffice />} /> 
           </Route>
         </Route>
 

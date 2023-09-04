@@ -12,14 +12,16 @@ import Unauthorized from './Components/Unauthorized';
 import RequireAuth from './Components/RequireAuth';
 import Administration from './Components/Administration';
 import CharacterComicsPage from './Pages/CharacterComicsPage';
+import { AuthProvider } from './context/AuthProvider';
 import CRUD from './Pages/CRUD';
 import BackOffice from './Pages/BackOffice';
 
 
 
+
 const App: React.FC = () => {
   return (
-    
+    <AuthProvider>
       <Routes>
 
         <Route path="/" element={<Layout />} >
@@ -42,7 +44,7 @@ const App: React.FC = () => {
         </Route>
 
       </Routes>
-    
+    </AuthProvider>
   );
 };
 

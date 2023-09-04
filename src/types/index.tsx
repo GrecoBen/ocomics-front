@@ -15,6 +15,7 @@ export type Card = { // pour pas avoir d'erreur (message est ce qui apparait en 
     name? : string;
     released_at? : string;
     poster? :string;
+    id? :number;
   };
 
 

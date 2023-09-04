@@ -7,7 +7,6 @@ import Register from './Components/Register';
 import Login from './Components/Login';
 import Layout from './Components/Layout';
 import OwnPage from './Pages/OwnPage';
-import WishPage from './Pages/WishPage';
 import Unauthorized from './Components/Unauthorized';
 import RequireAuth from './Components/RequireAuth';
 import Administration from './Components/Administration';
@@ -17,9 +16,9 @@ import CRUD from './Pages/CRUD';
 import BackOffice from './Pages/BackOffice';
 
 
-
-
 const App: React.FC = () => {
+
+  
   return (
     <AuthProvider>
       <Routes>
@@ -36,7 +35,6 @@ const App: React.FC = () => {
             {/*protected routes*/}
           <Route element={<RequireAuth/>} >
             <Route path="/ownlist" element={<OwnPage/>} />
-            <Route path="/wishlist" element={<WishPage/>} />
             <Route path="/administration" element={<Administration/>} />
             <Route path="/crud" element={<CRUD />} /> 
             <Route path="/backoffice" element={<BackOffice />} /> 
@@ -50,3 +48,5 @@ const App: React.FC = () => {
 
 export default App;
 
+/* <Route path="/wishlist" element={<WishPage/>} />
+*/

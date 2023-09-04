@@ -27,7 +27,7 @@ const CharactersCard: React.FC<Props> = ({post}) => {
   
 };
 <Footer />
-/* A AJOUTER EN CSS dans le className de l'image au dessus pour les rendre beaucoup plus beau
+/* 
 
 
 */

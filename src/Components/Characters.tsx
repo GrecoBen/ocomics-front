@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Character } from '../types';
+import { Character } from '../types/index';
 import CharactersCard from './CharactersCard';
 
 const CharacterImage: React.FC = () => {

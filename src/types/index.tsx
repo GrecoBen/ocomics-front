@@ -24,4 +24,4 @@ export type Card = { // pour pas avoir d'erreur (message est ce qui apparait en 
     message? :string;// pour pas avoir d'erreur (message est ce qui apparait en cas d'erreur)
     items? :Card[];
     post? :Character[];
-  }
+  };

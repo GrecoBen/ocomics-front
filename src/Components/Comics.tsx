@@ -20,7 +20,7 @@ const Comics: React.FC = () => {
         setResultAPI(data);
       })
       .catch((err) => console.error(err));
-  }, [search]);
+  }, []);
   
 
 
@@ -35,10 +35,11 @@ const Comics: React.FC = () => {
     <div className="grid grid-cols-1 lg:grid-cols-3 my-10 md:my-16 gap-5">
       {/* <SearchBar search={search} setSearch={setSearch}/>
       <ComicsCard cards={cardPicker()}/> */}
+      
       {resultAPI?.map(item => (
         
         <div className="basis-1/4" key={item.id}>
-          <ComicsCard card={item}/>
+          <ComicsCard key={item.id} card={item}/>
 
         </div>
         

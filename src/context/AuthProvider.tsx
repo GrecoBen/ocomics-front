@@ -1,10 +1,10 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, ReactNode } from "react";
 
 // Créez un contexte pour l'authentification
-const AuthContext = createContext({});
+const AuthContext = createContext<{ auth: any; setAuth: any }>({ auth: {}, setAuth: () => {} });
 
 // Créez un composant fournisseur d'authentification qui englobe les enfants avec le contexte d'authentification
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
     // Utilisez l'état local pour stocker les données d'authentification
     const [auth, setAuth] = useState({});
 
@@ -14,10 +14,13 @@ export const AuthProvider = ({ children }) => {
 
         // Vérifiez si la valeur n'est pas nulle avant de la parser
         if (storedValue !== null) {
-        const value = JSON.parse(storedValue);
-        if (Object.keys(value).length > 0) {
-            console.log(value);
-            setAuth(value);
+
+            const value = JSON.parse(storedValue);
+            if (Object.keys(value).length > 0) {
+                console.log(value);
+                setAuth(value);
+            }
+
         }
     }}, []);
 

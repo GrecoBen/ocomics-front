@@ -9,10 +9,12 @@ type Props = {};
 const ComicsPage: React.FC = () => {
   return (
     <section>
+      <div className = "flex flex-col bg-gray-800 min-h-screen" >
         <Navbar />
         <SearchBar />
         <Comics />
         <Footer />
+        </div>
     </section>
   )
 };

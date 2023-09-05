@@ -28,18 +28,23 @@ const CharacterComicsPage: React.FC = () => {
   }, [characterId]);
 
   return (
-    <div>
-      <Link to="/Personnages">Retour à la liste des personnages</Link>
+    <div className="flex flex-col bg-gray-800 min-h-screen">
+  <Link to="/Personnages" className="text-blue-500 hover:underline">Retour à la liste des personnages</Link>
 
-      <h1>Comics associés au personnage</h1>
-      <div className="grid grid-cols-2 gap-4">
-        {comics.map((comic) => (
-          <div key={comic.id}>
-            <ComicsCard card={comic} />
-          </div>
-        ))}
+  <h1 className="text-white font-bold mb-5 text-xl my-5">
+    <span className="inline-block p-2 bg-red-700">Comics associés au personnage</span>
+  </h1>
+  
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    {comics.map((comic) => (
+      <div key={comic.id}>
+        <ComicsCard card={comic} />
       </div>
-    </div>
+    ))}
+  </div>
+</div>
+
+
   );
 };
 

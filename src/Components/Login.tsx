@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import useAuth from '../hooks/useAuth';
+import useAuth, { AuthData } from '../hooks/useAuth'; // Importez le type AuthData
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -24,10 +24,7 @@ const Login = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  const { isAuthenticated, setAuth } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  const { isAuthenticated, setAuth } = useAuth(); // Utilisez le hook useAuth
 
   // Références aux éléments du formulaire et états des champs
   const userRef = useRef<HTMLInputElement | null>(null);
@@ -47,6 +44,10 @@ const Login = () => {
     // Réinitialise le message d'erreur lorsque les champs de l'email ou du mot de passe changent
     setErrMsg('');
   }, [email, password]);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,13 +71,14 @@ const Login = () => {
       localStorage.setItem('accessToken', accessToken);
 
       // Met à jour l'état de l'authentification
-      setAuth({
-        isAuthenticated: true, // Modification de l'authentification à true
+      const authData: AuthData = {
+        isAuthenticated: true,
         email: email,
         password: password,
         roles: roles,
         accessToken: accessToken,
-      });
+      };
+      setAuth(authData);
 
       // Réinitialise les champs email et mot de passe
       setEmail('');
@@ -102,60 +104,78 @@ const Login = () => {
     }
   };
 
-  // Fonction de déconnexion
   const handleLogout = () => {
     // Supprime le token d'accès du localStorage
     localStorage.removeItem('accessToken');
 
     // Réinitialise l'état de l'authentification
-    setAuth({ isAuthenticated: false, email: '', password: '', roles: [], accessToken: '' });
+    const authData: AuthData = {
+      isAuthenticated: false,
+      email: '',
+      password: '',
+      roles: [],
+      accessToken: '',
+    };
+    setAuth(authData);
 
     // Redirige l'utilisateur vers la page d'accueil (ou toute autre page souhaitée)
     navigate('/');
   };
 
   return (
-    <section>
-      {/* Affiche le message d'erreur s'il y en a un */}
-      <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">
-        {errMsg}
-      </p>
-      <h1>Se connecter</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Adresse e-mail:</label>
-        <input
-          type="text"
-          id="email"
-          ref={userRef}
-          autoComplete="off"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          required
-        />
+    <section className=" flex flex-col bg-gray-800 min-h-screen flex flex-col justify-center items-center ">
+  {/* Affiche le message d'erreur s'il y en a un */}
+  <p ref={errRef} className={`text-red-500 ${errMsg ? 'block' : 'hidden'}`} aria-live="assertive">
+    {errMsg}
+  </p>
+  <h1 className="text-3xl font-semibold mb-4">Se connecter</h1>
+  <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-80">
+    <div className="mb-4">
+      <label htmlFor="email" className="block text-gray-600">Adresse e-mail:</label>
+      <input
+        type="text"
+        id="email"
+        ref={userRef}
+        autoComplete="off"
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
+        required
+        className="w-full p-2 border border-gray-300 rounded mt-1"
+      />
+    </div>
 
-        <label htmlFor="password">Mot de passe:</label>
-        <input
-          type="password"
-          id="password"
-          onChange={(e) => setPwd(e.target.value)}
-          value={password}
-          required
-        />
-        <button>Se connecter</button>
-      </form>
-      {/* Bouton de déconnexion (affiché toujours) */}
-      <button onClick={handleLogout}>Se déconnecter</button>
-      <p>
-        Nouvel utilisateur ?<br />
-        <span className="line">
-          {/* Utilisation de Link pour les routes au lieu de <a> */}
-          <Link to="/register">Inscrivez-vous !</Link>
-        </span>
-      </p>
-      <span>
-        <Link to="/">Accueil</Link>
-      </span>
-    </section>
+    <div className="mb-4">
+      <label htmlFor="password" className="block text-gray-600">Mot de passe:</label>
+      <input
+        type="password"
+        id="password"
+        onChange={(e) => setPwd(e.target.value)}
+        value={password}
+        required
+        className="w-full p-2 border border-gray-300 rounded mt-1"
+      />
+    </div>
+
+    <button className="bg-blue-500 text-white hover:bg-blue-600 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+      Se connecter
+    </button>
+  </form>
+
+  <button onClick={handleLogout} className="mt-4 text-gray-600 hover:text-blue-500 focus:outline-none">
+    Se déconnecter
+  </button>
+
+  <p className="mt-4 text-gray-600">
+    Nouvel utilisateur ?<br />
+    <span className="line">
+      <Link to="/register" className="text-blue-500 hover:underline">Inscrivez-vous !</Link>
+    </span>
+  </p>
+
+  <span className="mt-4 text-gray-600">
+    <Link to="/" className="text-blue-500 hover:underline">Accueil</Link>
+  </span>
+</section>
   );
 }
 

@@ -8,6 +8,7 @@ import SearchBar from '../Components/SearchBar';
 
 
 const Home: React.FC = () => {
+  
   const token = localStorage.getItem('accessToken');
   // Effectue une requête pour obtenir les données de l'utilisateur connecté
   fetch('http://localhost:8080/api/user', {
@@ -49,7 +50,6 @@ const Home: React.FC = () => {
       </section>
       
      
-      
 
     </div>
     

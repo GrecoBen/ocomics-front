@@ -23,6 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, onLogout }) => {
             <Link to="/Comics" className='hover:bg-yellow-600'>Comics</Link> {/* Lien vers la page "Comics" */}
           </li>
           <li>
+
             <Link to="/Personnages" className='hover:bg-yellow-600'>Personnages</Link> {/* Lien vers la page "Personnages" */}
           </li>
           {isAuthenticated ? ( // Condition pour vérifier si l'utilisateur est authentifié

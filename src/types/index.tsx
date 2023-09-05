@@ -7,6 +7,7 @@ export type Card = { // pour pas avoir d'erreur (message est ce qui apparait en 
     released_at? :string;
     synopsis? :string;
     id? :number;
+    owned? :boolean;
     // signifie que l'on peut avoir n'importe quel clé avec tous les noms possibles et 
     // avec des valeurs de n'importe quel type
   };
@@ -24,4 +25,4 @@ export type Card = { // pour pas avoir d'erreur (message est ce qui apparait en 
     message? :string;// pour pas avoir d'erreur (message est ce qui apparait en cas d'erreur)
     items? :Card[];
     post? :Character[];
-  }
+  };

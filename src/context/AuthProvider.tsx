@@ -14,13 +14,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
         // Vérifiez si la valeur n'est pas nulle avant de la parser
         if (storedValue !== null) {
+
             const value = JSON.parse(storedValue);
             if (Object.keys(value).length > 0) {
                 console.log(value);
                 setAuth(value);
             }
+
         }
-    }, []);
+    }}, []);
 
     // Utilisez useEffect pour mettre à jour le stockage local lorsque les données d'authentification changent
     useEffect(() => {

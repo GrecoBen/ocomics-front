@@ -10,12 +10,16 @@ export const AuthProvider = ({ children }) => {
 
     // Utilisez useEffect pour récupérer les données d'authentification depuis le stockage local lorsque le composant est monté
     useEffect(() => {
-        const value = JSON.parse(window.localStorage.getItem('auth'));
+        const storedValue = window.localStorage.getItem('auth');
+
+        // Vérifiez si la valeur n'est pas nulle avant de la parser
+        if (storedValue !== null) {
+        const value = JSON.parse(storedValue);
         if (Object.keys(value).length > 0) {
-            console.log(value)
+            console.log(value);
             setAuth(value);
         }
-    }, []);
+    }}, []);
 
     // Utilisez useEffect pour mettre à jour le stockage local lorsque les données d'authentification changent
     useEffect(() => {

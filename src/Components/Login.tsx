@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import useAuth, { AuthData } from '../hooks/useAuth'; // Importez le type AuthData
+import useAuth from '../hooks/useAuth'; 
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -24,7 +24,7 @@ const Login = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  const { isAuthenticated, setAuth } = useAuth(); // Utilisez le hook useAuth
+  const { auth, setAuth } = useAuth(); // Utilisez le hook useAuth
 
   // Références aux éléments du formulaire et états des champs
   const userRef = useRef<HTMLInputElement | null>(null);
@@ -63,18 +63,17 @@ const Login = () => {
         }
       );
 
-      console.log(JSON.stringify(response.data));
       const accessToken = response?.data?.token;
       const roles = response?.data?.roles;
 
       // Stocke le token en localStorage
       localStorage.setItem('accessToken', accessToken);
+      
 
       // Met à jour l'état de l'authentification
-      const authData: AuthData = {
-        isAuthenticated: true,
+      const authData = {
+        auth: true,
         email: email,
-        password: password,
         roles: roles,
         accessToken: accessToken,
       };
@@ -87,7 +86,7 @@ const Login = () => {
       // Redirige l'utilisateur vers la page précédente
       navigate(from, { replace: true });
     } catch (err) {
-      if (!err?.response) {
+      /*if (!err?.response) {
         setErrMsg('Pas de réponse du serveur');
       } else if (err.response?.status === 400) {
         setErrMsg("Nom d'utilisateur ou mot de passe manquant");
@@ -95,7 +94,8 @@ const Login = () => {
         setErrMsg('Non autorisé');
       } else {
         setErrMsg('Échec de la connexion');
-      }
+      }*/
+      setErrMsg('Pas de réponse du serveur');
 
       // Met le focus sur le champ de message d'erreur
       if (errRef.current) {
@@ -109,10 +109,9 @@ const Login = () => {
     localStorage.removeItem('accessToken');
 
     // Réinitialise l'état de l'authentification
-    const authData: AuthData = {
-      isAuthenticated: false,
+    const authData = {
+      auth: false,
       email: '',
-      password: '',
       roles: [],
       accessToken: '',
     };

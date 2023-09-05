@@ -123,46 +123,59 @@ const Login = () => {
   };
 
   return (
-    <section>
-      {/* Affiche le message d'erreur s'il y en a un */}
-      <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">
-        {errMsg}
-      </p>
-      <h1>Se connecter</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Adresse e-mail:</label>
-        <input
-          type="text"
-          id="email"
-          ref={userRef}
-          autoComplete="off"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          required
-        />
+    <section className=" flex flex-col bg-gray-800 min-h-screen flex flex-col justify-center items-center ">
+  {/* Affiche le message d'erreur s'il y en a un */}
+  <p ref={errRef} className={`text-red-500 ${errMsg ? 'block' : 'hidden'}`} aria-live="assertive">
+    {errMsg}
+  </p>
+  <h1 className="text-3xl font-semibold mb-4">Se connecter</h1>
+  <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-80">
+    <div className="mb-4">
+      <label htmlFor="email" className="block text-gray-600">Adresse e-mail:</label>
+      <input
+        type="text"
+        id="email"
+        ref={userRef}
+        autoComplete="off"
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
+        required
+        className="w-full p-2 border border-gray-300 rounded mt-1"
+      />
+    </div>
 
-        <label htmlFor="password">Mot de passe:</label>
-        <input
-          type="password"
-          id="password"
-          onChange={(e) => setPwd(e.target.value)}
-          value={password}
-          required
-        />
-        <button>Se connecter</button>
-      </form>
-      <button onClick={handleLogout}>Se déconnecter</button>
-      <p>
-        Nouvel utilisateur ?<br />
-        <span className="line">
-         
-          <Link to="/register">Inscrivez-vous !</Link>
-        </span>
-      </p>
-      <span>
-        <Link to="/">Accueil</Link>
-      </span>
-    </section>
+    <div className="mb-4">
+      <label htmlFor="password" className="block text-gray-600">Mot de passe:</label>
+      <input
+        type="password"
+        id="password"
+        onChange={(e) => setPwd(e.target.value)}
+        value={password}
+        required
+        className="w-full p-2 border border-gray-300 rounded mt-1"
+      />
+    </div>
+
+    <button className="bg-blue-500 text-white hover:bg-blue-600 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+      Se connecter
+    </button>
+  </form>
+
+  <button onClick={handleLogout} className="mt-4 text-gray-600 hover:text-blue-500 focus:outline-none">
+    Se déconnecter
+  </button>
+
+  <p className="mt-4 text-gray-600">
+    Nouvel utilisateur ?<br />
+    <span className="line">
+      <Link to="/register" className="text-blue-500 hover:underline">Inscrivez-vous !</Link>
+    </span>
+  </p>
+
+  <span className="mt-4 text-gray-600">
+    <Link to="/" className="text-blue-500 hover:underline">Accueil</Link>
+  </span>
+</section>
   );
 }
 

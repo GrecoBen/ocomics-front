@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import useAuth from '../hooks/useAuth';
+import useAuth, { AuthData } from '../hooks/useAuth'; // Importez le type AuthData
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -24,10 +24,7 @@ const Login = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  const { isAuthenticated, setAuth } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  const { isAuthenticated, setAuth } = useAuth(); // Utilisez le hook useAuth
 
   // Références aux éléments du formulaire et états des champs
   const userRef = useRef<HTMLInputElement | null>(null);
@@ -47,6 +44,10 @@ const Login = () => {
     // Réinitialise le message d'erreur lorsque les champs de l'email ou du mot de passe changent
     setErrMsg('');
   }, [email, password]);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,13 +71,14 @@ const Login = () => {
       localStorage.setItem('accessToken', accessToken);
 
       // Met à jour l'état de l'authentification
-      setAuth({
-        isAuthenticated: true, // Modification de l'authentification à true
+      const authData: AuthData = {
+        isAuthenticated: true,
         email: email,
         password: password,
         roles: roles,
         accessToken: accessToken,
-      });
+      };
+      setAuth(authData);
 
       // Réinitialise les champs email et mot de passe
       setEmail('');
@@ -102,13 +104,19 @@ const Login = () => {
     }
   };
 
-  // Fonction de déconnexion
   const handleLogout = () => {
     // Supprime le token d'accès du localStorage
     localStorage.removeItem('accessToken');
 
     // Réinitialise l'état de l'authentification
-    setAuth({ isAuthenticated: false, email: '', password: '', roles: [], accessToken: '' });
+    const authData: AuthData = {
+      isAuthenticated: false,
+      email: '',
+      password: '',
+      roles: [],
+      accessToken: '',
+    };
+    setAuth(authData);
 
     // Redirige l'utilisateur vers la page d'accueil (ou toute autre page souhaitée)
     navigate('/');
@@ -143,12 +151,11 @@ const Login = () => {
         />
         <button>Se connecter</button>
       </form>
-      {/* Bouton de déconnexion (affiché toujours) */}
       <button onClick={handleLogout}>Se déconnecter</button>
       <p>
         Nouvel utilisateur ?<br />
         <span className="line">
-          {/* Utilisation de Link pour les routes au lieu de <a> */}
+         
           <Link to="/register">Inscrivez-vous !</Link>
         </span>
       </p>

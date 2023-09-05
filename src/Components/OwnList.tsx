@@ -6,7 +6,7 @@ import { Card } from '../types/index';
 
 const OwnList: React.FC = () => {
   // State de synchro de l'input
-  const [search, setSearch] = useState('');
+  // const [search, setSearch] = useState('');
   // State de stockage du resultat de l'API
   const [resultAPI, setResultAPI] = useState<Card[]>();
 

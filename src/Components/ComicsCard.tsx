@@ -1,15 +1,42 @@
 import React, { useState } from 'react';
 import { Card } from '../types/index';
-import OwnButton from './OwnButton';
+import OwnButton from './Testbutton';
 
 type Props = {
   card: Card;
 }
 
 // Fonction map qui prend le tableau des cards et de reformuler chacun de ses éléments en jsx qu'on veut utiliser
-const ComicsCard: React.FC<Props> = ({ card, owned = false }) => {
+const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) => {
   const [isOwned, setIsOwned] = useState(owned);
+  const [isWanted, setIsWanted] = useState(wanted);
 
+  const addComicToWish = () => {
+    fetch('http://localhost:8080/api/wish-list/add/' + card.id, {  // Enter your IP address here
+      method: 'POST',
+      mode: 'cors',
+    })
+      .then((response) => {
+        console.log(response.json())
+        setIsWanted(true)
+      })
+      .catch((err) => console.error(err));
+
+  };
+
+  const removeComicFromWish = () => {
+    fetch('http://localhost:8080/api/wish-list/remove/' + card.id, {  // Enter your IP address here
+      method: 'POST',
+      mode: 'cors',
+    })
+      .then((response) => {
+        console.log(response.json())
+        setIsWanted(false)
+      })
+      .catch((err) => console.error(err));
+
+  };
+  
   const addComicToCollection = () => {
     fetch('http://localhost:8080/api/own-list/add/' + card.id, {  // Enter your IP address here
       method: 'POST',
@@ -49,13 +76,24 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false }) => {
             Je possède
           </button>
         }
+
         {isOwned == true &&
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={removeComicFromCollection}>
             Je ne le possède plus
           </button>
         }
 
-        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer ">I want it</button>
+        {isWanted == false &&
+          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={addComicToWish}>
+            Je le veux
+          </button>
+        }
+
+        {isWanted == true &&
+          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={removeComicFromWish}>
+            Je ne le veux plus
+          </button>
+        }
       </div>
     </div>
   );

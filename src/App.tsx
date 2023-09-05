@@ -14,6 +14,7 @@ import CharacterComicsPage from './Pages/CharacterComicsPage';
 import { AuthProvider } from './context/AuthProvider';
 import CRUD from './Pages/CRUD';
 import BackOffice from './Pages/BackOffice';
+import WishPage from './Pages/WishPage';
 
 
 const App: React.FC = () => {
@@ -34,6 +35,7 @@ const App: React.FC = () => {
           <Route path="/character-comics/:characterId" element={<CharacterComicsPage />} />
             {/*protected routes*/}
           <Route element={<RequireAuth/>} >
+            <Route path="/wishlist" element={<WishPage/>} />
             <Route path="/ownlist" element={<OwnPage/>} />
             <Route path="/administration" element={<Administration/>} />
             <Route path="/crud" element={<CRUD />} /> 

@@ -1,45 +1,29 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from '../../node_modules/react-router-dom/dist/index';
 import Footer from '../Components/Footer';
 import Navbar from '../Components/NavBar';
 import OwnCard from '../Components/OwnCard';
+import OwnList from '../Components/OwnList';
 import { Card } from '../types/index';
 
 
 
 const OwnPage = () => {
 
+  //const { userId } = useParams<{ userId: string }>();
   const [resultAPI3, setResultAPI3] = useState<Card[]>();
   const token = localStorage.getItem('accessToken');
 
-  useEffect(() => {
-    fetch('http://localhost:8080/api/ownedlist'
-    , {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setResultAPI3(data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
+
 
   return (
     <section>
-        <Navbar />
-        <h1>Voici les comics en ta possession</h1>
-
-        {resultAPI3?.map(own => (
-          <div className="basis-1/6 h-[350px]" key={own.id}>
-          <OwnCard own={own}/>
-
-          </div>
-        ))}
-        <Footer />
+      <Navbar />
+      <section className="mx-40 lg:mx-56">
+        <h1 className='text-white font-bold mb-1 text-xl inline-block p-2 bg-red-700 my-5 '>Vos comics</h1>
+          <OwnList />
+        </section>
+      <Footer />
     </section>
   )
 }

@@ -2,22 +2,28 @@ import React, { useEffect, useState } from 'react';
 import ComicsCard from './ComicsCard';
 import SearchBar from './SearchBar';
 import { Card } from '../types/index';
-import CharactersCard from './CharactersCard';
 /* type Props = {} */
 
-const Comics: React.FC = () => {
+const OwnList: React.FC = () => {
   // State de synchro de l'input
   const [search, setSearch] = useState('');
   // State de stockage du resultat de l'API
   const [resultAPI, setResultAPI] = useState<Card[]>();
 
+  const token = localStorage.getItem('accessToken');
   // console.log(search);
   useEffect(() => {
-    fetch('http://localhost:8080/api/comics')
+    fetch('http://localhost:8080/api/ownedlist'
+      , {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setResultAPI(data);
+        setResultAPI(data[0].comics);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -39,7 +45,7 @@ const Comics: React.FC = () => {
       {resultAPI?.map(item => (
 
         <div className="basis-1/4" key={item.id}>
-          <ComicsCard key={item.id} card={item} />
+          <ComicsCard key={item.id} card={item} owned={true} />
 
         </div>
 
@@ -50,4 +56,4 @@ const Comics: React.FC = () => {
 
 };
 
-export default Comics;
+export default OwnList;

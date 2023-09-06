@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import ComicsCard from './ComicsCard';
-import SearchBar from './SearchBar';
 import { Card } from '../types/index';
 /* type Props = {} */
 

@@ -75,11 +75,11 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
   };
 
   return (
-    <div className="h-full w-full rounded-lg border-2 w-full border-solid border border-violet-800 rounded shadow-lg overflow-hidden key" key={card.id}>
+    <div className=" bg-slate-700 h-full w-full rounded-lg border-2 w-full border-solid border border-amber-600 rounded shadow-2xl overflow-hidden key" key={card.id}>
       <img className=" w-full max-h-72 object-cover cursor-pointer" src={card.poster} alt={card.title}></img>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-black">{card.title}</div>
-        <p className="text-gray-400 text-base text-ellipsis overflow-hidden max-h-40 text-sm ">{card.synopsis}</p>
+        <p className="text-gray-400 text-base text-ellipsis overflow-hidden max-h-40 text-sm italic">{card.synopsis}</p>
       </div>
       <div className=" p-4 flex justify-evenly">
         {isOwned == false &&

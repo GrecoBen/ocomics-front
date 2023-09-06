@@ -17,10 +17,10 @@ const WishPage = () => {
 
 
     return (
-        <section>
+        <section className=" bg-gray-800">
             <Navbar />
             <section className="mx-40 lg:mx-56">
-                <h1 className='text-white font-bold mb-1 text-xl inline-block p-2 bg-red-700 my-5 '>Les comics que vous voulez</h1>
+                <h1 className='text-white font-bold mb-1 text-xl inline-block p-2 bg-red-700 my-5 '>Les comics que vous recherchez</h1>
                 <WishList />
             </section>
             <Footer />

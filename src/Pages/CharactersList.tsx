@@ -40,7 +40,7 @@ const CharactersList: React.FC = () => {
       <h1 className="text-white font-bold mb-5 text-xl inline-block p-2 bg-red-700 my-5">Liste des Personnages</h1>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {characters.map((character) => (
-          <li key={character.id} className="bg-gray-800 rounded-lg p-4 border-4 border-violet-800"> {/* Utilisez la classe "border-blue-500" pour une bordure bleue personnalisée */}
+          <li key={character.id} className="bg-gray-800 rounded-lg p-4 border-4 border-amber-600"> {/* Utilisez la classe "border-blue-500" pour une bordure bleue personnalisée */}
             <img src={character.poster} alt={character.name} className="w-full h-auto rounded" />
             <h2 className="text-xl font-semibold mt-2">{character.name}</h2>
             <p className="text-white mt-2">{character.description}</p>

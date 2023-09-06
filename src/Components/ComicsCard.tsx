@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from '../types/index';
-import OwnButton from './Testbutton';
 
 type Props = {
   card: Card;
@@ -10,11 +9,14 @@ type Props = {
 const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) => {
   const [isOwned, setIsOwned] = useState(owned);
   const [isWanted, setIsWanted] = useState(wanted);
-
+  const token = localStorage.getItem('accessToken');
   const addComicToWish = () => {
-    fetch('http://localhost:8080/api/wish-list/add/' + card.id, {  // Enter your IP address here
+    fetch('http://localhost:8080/api/wishlist/add/' + card.id, {  // Enter your IP address here
       method: 'POST',
       mode: 'cors',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
     })
       .then((response) => {
         console.log(response.json())
@@ -25,9 +27,12 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
   };
 
   const removeComicFromWish = () => {
-    fetch('http://localhost:8080/api/wish-list/remove/' + card.id, {  // Enter your IP address here
-      method: 'POST',
+    fetch('http://localhost:8080/api/wishlist/remove/' + card.id, {  // Enter your IP address here
+      method: 'DELETE',
       mode: 'cors',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
     })
       .then((response) => {
         console.log(response.json())
@@ -36,11 +41,14 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
       .catch((err) => console.error(err));
 
   };
-  
+
   const addComicToCollection = () => {
-    fetch('http://localhost:8080/api/own-list/add/' + card.id, {  // Enter your IP address here
+    fetch('http://localhost:8080/api/ownedlist/add/' + card.id, {  // Enter your IP address here
       method: 'POST',
       mode: 'cors',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
     })
       .then((response) => {
         console.log(response.json())
@@ -51,9 +59,12 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
   };
 
   const removeComicFromCollection = () => {
-    fetch('http://localhost:8080/api/own-list/remove/' + card.id, {  // Enter your IP address here
-      method: 'POST',
+    fetch('http://localhost:8080/api/ownedlist/remove/' + card.id, {  // Enter your IP address here
+      method: 'DELETE',
       mode: 'cors',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
     })
       .then((response) => {
         console.log(response.json())

@@ -33,7 +33,7 @@ const CharactersList: React.FC = () => {
 
   return (
     <div className="flex flex-col bg-gray-800 min-h-screen">
-  <NavBar />
+  <NavBar isAuthenticated={false} />
 
   <div className="container mx-auto p-4">
     <div className="bg-gray-800 rounded-lg shadow-md p-6">

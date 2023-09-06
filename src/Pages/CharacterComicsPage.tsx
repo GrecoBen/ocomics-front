@@ -32,7 +32,7 @@ const CharacterComicsPage: React.FC = () => {
   return (
     
     <div className="flex flex-col bg-gray-800 min-h-screen">
-      <Navbar />
+      <Navbar isAuthenticated={false} />
       <Link to="/Personnages" className="text-blue-500 hover:underline">Retour à la liste des personnages</Link>
       
       <h1 className="text-white font-bold mb-5 text-xl my-5">
@@ -42,7 +42,7 @@ const CharacterComicsPage: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {comics.map((comic) => (
         <div key={comic.id}>
-          <ComicsCard card={comic} />
+          <ComicsCard card={comic} owned={false} wanted={false} />
         </div>
       ))}
       </div>

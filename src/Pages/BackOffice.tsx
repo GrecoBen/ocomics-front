@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Administration from '../Components/Administration';
 
 
 
-const BackOffice = () => {
+const BackOffice: React.FC = () => {
   return (
     <div>
         <div>

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ComicsCard from './ComicsCard';
-import SearchBar from './SearchBar';
 import { Card } from '../types/index';
-import CharactersCard from './CharactersCard';
 /* type Props = {} */
 
 const Comics: React.FC = () => {
   // State de synchro de l'input
+  // @ts-ignore
   const [search, setSearch] = useState('');
   // State de stockage du resultat de l'API
   const [resultAPI, setResultAPI] = useState<Card[]>();
@@ -39,7 +38,7 @@ const Comics: React.FC = () => {
       {resultAPI?.map(item => (
 
         <div className="basis-1/4" key={item.id}>
-          <ComicsCard key={item.id} card={item} />
+          <ComicsCard key={item.id} card={item} owned={false} wanted={false} />
 
         </div>
 

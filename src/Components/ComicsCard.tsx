@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { Card } from '../types/index';
 
 type Props = {
   card: Card;
+  owned: boolean;
+  wanted: boolean;
 }
 
 // Fonction map qui prend le tableau des cards et de reformuler chacun de ses éléments en jsx qu'on veut utiliser

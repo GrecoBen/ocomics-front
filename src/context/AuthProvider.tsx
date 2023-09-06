@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, ReactNode, useContext } from "react";
+import { createContext, useState, useEffect, ReactNode } from "react";
 
 // Créez un contexte pour l'authentification
 const AuthContext = createContext<{ auth: any; setAuth: any }>({ auth: {}, setAuth: () => {} });

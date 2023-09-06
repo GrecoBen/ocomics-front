@@ -6,11 +6,15 @@ import SearchBar from '../Components/SearchBar';
 
 
 const ComicsPage: React.FC = () => {
+  
   return (
     <section>
       <div className = "flex flex-col  bg-gray-800 min-h-screen " >
-        <Navbar />
-        <SearchBar />
+        <Navbar isAuthenticated={false} />
+        {/* @ts-ignore */}
+        <SearchBar setSearch={function (value: React.SetStateAction<string>): void {
+          throw new Error('Function not implemented.');
+        } } />
         <div className ="mx-40 lg:mx-56">
           <Comics />
         </div>

@@ -23,7 +23,7 @@ const Login = () => {
       })
       .catch((err) => console.error(err));
   }, []);
-
+// @ts-ignore
   const { auth, setAuth } = useAuth(); // Utilisez le hook useAuth
 
   // Références aux éléments du formulaire et états des champs

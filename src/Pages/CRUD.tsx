@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react'
+/*import React, { useRef, useState } from 'react'
 
 
-const CRUD = () => {
+const CRUD: React.FC = () => {
 
     const list =[
         {
@@ -33,7 +33,7 @@ const CRUD = () => {
         const nameRef = useRef();
         const descriptionRef = useRef();
 
-        function handleSubmit(event){
+        function handleSubmit(event: { preventDefault: any; target: { elements: { name: { value: any; }; description: { value: any; }; }; }; }){
             event?.preventDefault
             const name = event?.target.elements.name.value;
             const description = event?.target.elements.description.value;
@@ -43,7 +43,7 @@ const CRUD = () => {
                 description
             }
 
-            setComics((prevComics)=>
+            setComics((prevComics: any[])=>
             {
                 return prevComics.concat(newcomics)
             })
@@ -86,9 +86,10 @@ const CRUD = () => {
     </div>
   )
   
-  function handleSubmit(id){
+  function handleSubmit(id: React.SetStateAction<number>){
     setUpdateState(id)
 }
 };
 
 export default CRUD;
+*/

@@ -223,7 +223,7 @@ const Register = () => {
             </div>
             <button
               type="submit"
-              className="bg-blue-500 text-white hover:bg-blue-600 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              className="bg-yellow-500 text-white hover:bg-yellow-600 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
               disabled={!validName || !validPwd || !validMatch || !validEmail} // Modification pour inclure la validité de l'email
             >
               S'inscrire
@@ -232,11 +232,11 @@ const Register = () => {
           <p className="mt-4 text-gray-600">
             Déjà inscrit ?<br />
             <span className="line">
-              <Link to="/login" className="text-blue-500 hover:underline">Connectez-vous !</Link>
+              <Link to="/login" className="text-yellow-700 hover:underline">Connectez-vous !</Link>
             </span>
           </p>
           <span className="mt-4 text-gray-600">
-            <Link to="/" className="text-blue-500 hover:underline">Accueil</Link>
+            <Link to="/" className="text-yellow-700 hover:underline">Accueil</Link>
           </span>
         </div>
       </section>

@@ -17,7 +17,7 @@ const OwnPage = () => {
 
 
   return (
-    <section>
+    <section className=" bg-gray-800">
       <Navbar />
       <section className="mx-40 lg:mx-56">
         <h1 className='text-white font-bold mb-1 text-xl inline-block p-2 bg-red-700 my-5 '>Vos comics</h1>

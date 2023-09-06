@@ -13,22 +13,22 @@ const Comics: React.FC = () => {
 
   // console.log(search);
   useEffect(() => {
-    fetch('http://localhost:8080/api/comics')
+    fetch(`http://localhost:8080/api/comics?title=${search}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         setResultAPI(data);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [search]);
 
 
 
   // Fonction qui gère les props de ComicsCard
-  // ".message" est le message d'erreur dans l'API
+   //".message" est le message d'erreur dans l'API
   /*const cardPicker = (): Card[]  => {
     if (!resultAPI || resultAPI.message === "le message d'erreur d'API") return [];
-    return resultAPI.items;
+    return resultAPI.items || [];
     }; */
 
   return (

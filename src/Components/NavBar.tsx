@@ -49,13 +49,16 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
           {isAuthenticated ? ( // Condition pour vérifier si l'utilisateur est authentifié
             <>
               <li>
-                <Link to="/possede" className='hover:bg-yellow-600'>Je possède</Link> 
+                <Link to="/wishlist" className='hover:bg-yellow-600'>Je possède</Link> 
               </li>
               <li>
-                <Link to="/recherche" className='hover:bg-yellow-600'>Je recherche</Link>
+                <Link to="/ownlist" className='hover:bg-yellow-600'>Je Veux</Link>
               </li>
               <li>
                 <button onClick={onLogout} className='hover:bg-yellow-600'>Se déconnecter</button>
+              </li>
+              <li>
+                <Link to="/backoffice" className='hover:bg-yellow-600'>Back Office</Link>
               </li>
               <li>
                 {isAuthenticated && ( // Afficher l'icône d'utilisateur uniquement si l'utilisateur est authentifié

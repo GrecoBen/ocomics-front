@@ -1,14 +1,20 @@
+
 import React, { useState, useEffect } from 'react';
+
+
 import Characters from '../Components/Characters';
 import Carousel from '../Components/Carousel';
 import Comics from '../Components/Comics';
 import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
 import SearchBar from '../Components/SearchBar';
-import { Card } from '../types';
 
 const Home: React.FC = () => {
+
   const [resultAPI, setResultAPI] = useState<Card[] | null>(null); // Utilisation de `null` au lieu de `undefined`
+
+  // @ts-ignore
+
   const token = localStorage.getItem('accessToken');
 
   useEffect(() => {
@@ -27,7 +33,10 @@ const Home: React.FC = () => {
   }, [token]); // Utilisation de l'effet pour effectuer la requête lorsqu'il y a un changement de token
 
   return (
-    <div className="flex flex-col bg-gray-800 min-h-screen">
+  <div>
+
+    <div className="flex flex-col bg-gray-800 min-h-screen ">
+
       <div className='mx-10 md:mx-20'>
         <NavBar isAuthenticated={false} />
       </div>
@@ -45,10 +54,12 @@ const Home: React.FC = () => {
           </p>
         </div>
       </section>
+
       <section className=' mx-10 md:mx-20'>
         <Footer />
       </section>
     </div>
+
   );
 };
 

@@ -26,8 +26,6 @@ const Image = [
 const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
   const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
-  console.log('authtototo', auth);
-
   const onLogout = () => {
     // Supprime le token d'accès du localStorage
     localStorage.removeItem('accessToken');
@@ -46,15 +44,15 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
   };
  // file:///home/student/T%C3%A9l%C3%A9chargements/batman-2216148_1280.jpg
   isAuthenticated = auth.auth
-  return (
+  return (   
+       
     <section>
       <div className="bg-gradient-to-tr from-zinc-800 to-neutral-500 text-white h-32 w-full bg-cover bg-center ">
         <img className="w-full h-32 object-cover mix-blend-overlay" src="https://wallup.net/wp-content/uploads/2016/01/45493-Spider-Man-comic_art-comics-superhero-Marvel_Comics-748x421.jpg"  />
         </div>
   
     <nav className="container mx-auto bg-yellow-500 shadow-xl"> 
-    
-      
+        
       <div className="flex h-14 items-center justify-between border-slate-200"> 
         <Link to="/"> {/* Un lien de navigation vers la page d'accueil */}
           <img className="h-[3.5rem] w-24 rounded-md cursor-pointer" src={Logo} alt="" /> 

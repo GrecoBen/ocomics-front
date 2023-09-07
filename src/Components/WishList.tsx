@@ -18,8 +18,7 @@ const WishList: React.FC = () => {
         },
       })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      .then((data) => {        
         setResultAPI(data[0].comics);
       })
       .catch((err) => console.error(err));

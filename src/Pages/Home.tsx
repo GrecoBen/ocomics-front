@@ -59,10 +59,15 @@ const Home: React.FC = () => {
       <Footer />
       </section>
       
-     
-
-    </div>
     
+    </div>
+  </section>
+  <section className="mx-4 md:mx-10 lg:mx-20">
+    <Footer />
+  </section>
+</div>
+
+   
   );
 };
 //<Characters />

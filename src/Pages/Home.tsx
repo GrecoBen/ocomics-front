@@ -5,13 +5,12 @@ import Comics from '../Components/Comics';
 import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
 import SearchBar from '../Components/SearchBar';
-import { Card } from '../types';
 
 
 
 const Home: React.FC = () => {
   // @ts-ignore
-  const [resultAPI, setResultAPI] = useState<Card[]>();
+
   const token = localStorage.getItem('accessToken');
   // Effectue une requête pour obtenir les données de l'utilisateur connecté
   fetch('http://localhost:8080/api/user', {
@@ -61,11 +60,11 @@ const Home: React.FC = () => {
       
     
     </div>
-  </section>
+  
   <section className="mx-4 md:mx-10 lg:mx-20">
     <Footer />
   </section>
-</div>
+
 
    
   );

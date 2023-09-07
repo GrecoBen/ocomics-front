@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Characters from '../Components/Characters';
 import Carousel from '../Components/Carousel';
 import Comics from '../Components/Comics';

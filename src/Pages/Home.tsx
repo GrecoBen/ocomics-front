@@ -59,6 +59,8 @@ const Home: React.FC = () => {
         <Footer />
       </section>
     </div>
+  </div>
+
 
   );
 };

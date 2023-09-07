@@ -12,8 +12,6 @@ type NavbarProps = {
 const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
   const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
-  console.log('authtototo', auth);
-
   const onLogout = () => {
     // Supprime le token d'accès du localStorage
     localStorage.removeItem('accessToken');
@@ -33,7 +31,8 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
 
   isAuthenticated = auth.auth
   return (
-    <nav className="container mx-auto bg-yellow-500"> 
+    
+    <nav className="container mx-auto bg-yellow-500">    
       <div className="flex h-14 items-center justify-between border-slate-200"> 
         <Link to="/"> {/* Un lien de navigation vers la page d'accueil */}
           <img className="h-12 w-24 rounded-md cursor-pointer" src={Logo} alt="" /> 

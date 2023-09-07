@@ -24,7 +24,7 @@ const Login = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  const { auth, setAuth } = useAuth(); // Utilisez le hook useAuth
+  const { setAuth } = useAuth(); // Utilisez le hook useAuth
 
   // Références aux éléments du formulaire et états des champs
   const userRef = useRef<HTMLInputElement | null>(null);
@@ -85,19 +85,8 @@ const Login = () => {
 
       // Redirige l'utilisateur vers la page précédente
       navigate(from, { replace: true });
-    } catch (err) {
-      /*if (!err?.response) {
-        setErrMsg('Pas de réponse du serveur');
-      } else if (err.response?.status === 400) {
-        setErrMsg("Nom d'utilisateur ou mot de passe manquant");
-      } else if (err.response?.status === 401) {
-        setErrMsg('Non autorisé');
-      } else {
-        setErrMsg('Échec de la connexion');
-      }*/
-      setErrMsg('Pas de réponse du serveur');
-
-      // Met le focus sur le champ de message d'erreur
+    } catch (err) {      
+      setErrMsg('Pas de réponse du serveur');      
       if (errRef.current) {
         errRef.current.focus();
       }

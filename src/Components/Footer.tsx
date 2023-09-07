@@ -25,11 +25,4 @@ const Footer: React.FC = () => {
   );
 };
 
-
-/* 
-<img className="h-12 w-24 rounded-md " src={Logo} alt="" />
-
-flex h-12 justify-end flex space-x-2 
-*/
-
 export default Footer;

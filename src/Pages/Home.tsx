@@ -52,7 +52,7 @@ const Home: React.FC = () => {
         </div>
         
       </section>
-      <section className=' mx-10 md:mx-20'>
+      <section className=''>
       <Footer />
       </section>
       
@@ -60,13 +60,6 @@ const Home: React.FC = () => {
 
     </div>
     
-  );
-};
-//<Characters />
-export default Home;
-</div>
-
-   
   );
 };
 //<Characters />

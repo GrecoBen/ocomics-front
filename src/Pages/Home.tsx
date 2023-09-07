@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Characters from '../Components/Characters';
 import Carousel from '../Components/Carousel';
 import Comics from '../Components/Comics';
 import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
-import SearchBar from '../Components/SearchBar';
-import { Card } from '../types';
 
 
 
 const Home: React.FC = () => {
-  // @ts-ignore
-  const [resultAPI, setResultAPI] = useState<Card[]>();
+  
+  
   const token = localStorage.getItem('accessToken');
   // Effectue une requête pour obtenir les données de l'utilisateur connecté
   fetch('http://localhost:8080/api/user', {
@@ -26,20 +24,19 @@ const Home: React.FC = () => {
     })
     .catch((err) => console.error(err));
 
-    /*const cardPicker = (): Card[]  => {
+   /* const cardPicker = (): Card[]  => {
       if (!resultAPI || resultAPI.message === "le message d'erreur d'API") return [];
       return resultAPI.items || [];
-      }; 
-      */
+      };  */
+
   return (
 
     <div className="flex flex-col bg-gray-800 min-h-screen ">
 
-      <div className='mx-10 md:mx-20'>
-        <NavBar isAuthenticated={false} />
+      <div className=''>
+        <NavBar />
       </div>
-      {/*  @ts-ignore */}
-      <SearchBar />
+      
       <div><Carousel /></div>
       <section className="mx-40 lg:mx-56">
         <h1 className='text-white font-bold mb-1 text-xl inline-block p-2 bg-red-700 my-5'>LES NOUVEAUTÉS</h1>
@@ -59,12 +56,14 @@ const Home: React.FC = () => {
       <Footer />
       </section>
       
-    
+     
+
     </div>
-  </section>
-  <section className="mx-4 md:mx-10 lg:mx-20">
-    <Footer />
-  </section>
+    
+  );
+};
+//<Characters />
+export default Home;
 </div>
 
    

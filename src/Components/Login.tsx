@@ -3,7 +3,7 @@ import useAuth from '../hooks/useAuth';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 
-const LOGIN_URL = 'http://localhost:8080/api/login_check';
+const LOGIN_URL = 'https://grecoben-server.eddi.cloud/api/login_check';
 
 const Login = () => {
   useEffect(() => {
@@ -11,7 +11,7 @@ const Login = () => {
     const token = localStorage.getItem('accessToken');
 
     // Effectue une requête pour obtenir les données de l'utilisateur connecté
-    fetch('http://localhost:8080/api/user', {
+    fetch('https://grecoben-server.eddi.cloud/api/user', {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,

@@ -10,7 +10,7 @@ const CharacterComicsPage: React.FC = () => {
   const [comics, setComics] = useState<Card[]>([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/character/${characterId}`)
+    fetch(`https://grecoben-server.eddi.cloud/api/character/${characterId}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Erreur lors de la récupération des comics');

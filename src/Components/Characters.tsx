@@ -7,7 +7,7 @@ const CharacterImage: React.FC = () => {
   const [resultAPI2, setResultAPI2] = useState<Character[]>();
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/character')
+    fetch('https://grecoben-server.eddi.cloud/api/character')
       .then((response) => response.json())
       .then((data) => {        
         setResultAPI2(data);

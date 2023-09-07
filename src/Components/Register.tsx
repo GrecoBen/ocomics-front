@@ -6,7 +6,7 @@ import { useNavigate, Link } from 'react-router-dom';
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[A-Za-z0-9+_.-]+@(.+)$/;
-const REGISTER_URL = 'http://localhost:8080/api/register';
+const REGISTER_URL = 'https://grecoben-server.eddi.cloud/api/register';
 
 const Register = () => {
   const userRef = useRef<HTMLInputElement | null>(null);

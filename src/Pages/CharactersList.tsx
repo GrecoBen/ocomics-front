@@ -15,7 +15,7 @@ const CharactersList: React.FC = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/character')
+    fetch('https://grecoben-server.eddi.cloud/api/character')
       .then((response) => {
         if (!response.ok) {
           throw new Error('');

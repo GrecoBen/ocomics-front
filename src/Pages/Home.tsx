@@ -19,7 +19,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     // Effectue une requête pour obtenir les données de l'utilisateur connecté
-    fetch('http://localhost:8080/api/user', {
+    fetch('https://grecoben-server.eddi.cloud/api/user', {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,

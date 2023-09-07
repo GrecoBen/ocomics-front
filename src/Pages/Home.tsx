@@ -31,6 +31,7 @@ const Home: React.FC = () => {
       }; 
       */
   return (
+  <div>
 
     <div className="flex flex-col bg-gray-800 min-h-screen ">
 
@@ -54,18 +55,16 @@ const Home: React.FC = () => {
         </div>
         
       </section>
-      <section className=' mx-10 md:mx-20'>
-      <Footer />
-      </section>
+     
       
-    
+    <section className="mx-4 md:mx-10 lg:mx-20">
+    <Footer />
+    </section>
     </div>
   
-  <section className="mx-4 md:mx-10 lg:mx-20">
-    <Footer />
-  </section>
 
 
+  </div>
    
   );
 };

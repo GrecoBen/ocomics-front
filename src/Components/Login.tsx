@@ -24,8 +24,9 @@ const Login = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  const { setAuth } = useAuth(); // Utilisez le hook useAuth
 
+  const { setAuth } = useAuth(); // Utilisez le hook useAuth
+ 
   // Références aux éléments du formulaire et états des champs
   const userRef = useRef<HTMLInputElement | null>(null);
   const errRef = useRef<HTMLParagraphElement | null>(null);
@@ -116,8 +117,8 @@ const Login = () => {
   <p ref={errRef} className={`text-red-500 ${errMsg ? 'block' : 'hidden'}`} aria-live="assertive">
     {errMsg}
   </p>
-  <h1 className="text-3xl font-semibold mb-4">Se connecter</h1>
-  <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-80">
+  <h1 className="text-3xl font-semibold mb-4 text-white">Se connecter</h1>
+  <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-xl w-80">
     <div className="mb-4">
       <label htmlFor="email" className="block text-gray-600">Adresse e-mail:</label>
       <input
@@ -144,24 +145,24 @@ const Login = () => {
       />
     </div>
 
-    <button className="bg-blue-500 text-white hover:bg-blue-600 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+    <button className="bg-yellow-500 text-white hover:bg-yellow-600 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
       Se connecter
     </button>
   </form>
 
-  <button onClick={handleLogout} className="mt-4 text-gray-600 hover:text-blue-500 focus:outline-none">
+  <button onClick={handleLogout} className="border rounded bg-yellow-500 text-cyan-950 inline-block hover:underline p-1 mt-5 font-semibold focus:outline-none">
     Se déconnecter
   </button>
 
-  <p className="mt-4 text-gray-600">
+  <p className="mt-4 text-yellow-600">
     Nouvel utilisateur ?<br />
     <span className="line">
-      <Link to="/register" className="text-blue-500 hover:underline">Inscrivez-vous !</Link>
+      <Link to="/register" className="border-cyan-800 rounded bg-yellow-500 text-cyan-950 inline-block hover:underline p-1 my-4 mx-7 font-semibold shadow-xl">S'inscrire</Link>
     </span>
   </p>
 
-  <span className="mt-4 text-gray-600">
-    <Link to="/" className="text-blue-500 hover:underline">Accueil</Link>
+  <span className="mt-1 text-gray-600">
+    <Link to="/" className="text-yellow-600 shadow-xl text-lg hover:underline">Accueil</Link>
   </span>
 </section>
   );

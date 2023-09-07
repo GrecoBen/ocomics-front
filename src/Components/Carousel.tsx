@@ -27,13 +27,16 @@ const Carou: React.FC = () => (
     <Carousel autoplay>
       {Slider.map((imageUrl, index) => (
         <div key={index} className="w-full relative h-full">
-            <div className="container absolute top-10 left-10 mx-auto p-8 text-center">
-                <h1 className="rounded-lg bg-black bg-opacity-20 px-2 py-1 text-center text-3xl font-stencil font-semibold text-white">Bienvenue Sur O'Comics</h1>
-                <p className="rounded-lg bg-black bg-opacity-20 px-2 py-1 text-center text-1xl font-stencil font-semibold text-white">
-                   O'comics est la plateforme idéale pour les passionnés de comics. Découvrez de nouveaux comics, échangez avec d'autres membres et complétez vos collections.        
-        
+            <div className="container absolute top-10 left-14 mx-auto p-8 text-center">
+                <div><h1 className="rounded-lg bg-black bg-opacity-50 px-2 py-1 text-center text-4xl font-stencil font-semibold text-white inline-block">Bienvenue Sur O'Comics</h1></div>
+                <div>
+                  <p className="rounded-lg bg-black bg-opacity-50 px-2 py-1 text-center text-xl font-stencil font-semibold text-white mt-40 inline-block">
+                   O'comics est la plateforme idéale pour les passionnés de comics. Découvrez de nouveaux comics, échangez avec d'autres membres et complétez vos collections.
+                   </p>        
+                    <p className="rounded-lg bg-black bg-opacity-50 px-2 py-1 text-center text-xl font-stencil font-semibold text-white mt-5 inline-block">
                    Rejoignez notre communauté pour partager votre passion et discuter avec d'autres fans de comics!
-                </p>
+                    </p>
+                </div>
               </div>
           <img
             src={imageUrl}

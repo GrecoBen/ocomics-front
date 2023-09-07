@@ -29,7 +29,7 @@ const WishList: React.FC = () => {
         {resultAPI?.map(item => (
 
         <div className="basis-1/4" key={item.id}>
-         <ComicsCard key={item.id} card={item} wanted={true} />
+         <ComicsCard key={item.id} card={item} wanted={true} owned={false} />
 
     </div>
 

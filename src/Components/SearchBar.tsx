@@ -2,8 +2,6 @@ import {
   Dispatch,
   SetStateAction,
   FC,
-  ChangeEvent,
-  useState,
   FormEvent,
 } from 'react';
 
@@ -31,7 +29,7 @@ const SearchBar: FC<Props> = ({ setSearch }) => {
   };
 
   return (
-    <section id="search_bar">
+    <section id="search_bar" className="flex justify-end mx-20">
       <form onSubmit={handleSubmit}>
         <input
           type="text"

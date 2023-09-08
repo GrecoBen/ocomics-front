@@ -7,7 +7,7 @@ import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
 
 const Home: React.FC = () => {
-  const [resultAPI, setResultAPI] = useState<[] | null>(null);
+  // @ts-ignore
   const [loading, setLoading] = useState(true);
 
   // @ts-ignore
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
     <div className="flex flex-col bg-gray-800 min-h-screen ">
 
       <div className=''>
-        <NavBar />
+        <NavBar isAuthenticated={false} />
       </div>
 
       <div><Carousel /></div>

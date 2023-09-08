@@ -14,10 +14,14 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
   const token = localStorage.getItem('accessToken');
   const isAuthenticated = !!token; // Vérifiez si l'utilisateur est connecté
 
+  const handleLoginRedirect = () => {
+    // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+    window.location.href = '/login';
+  };
+
   const toggleOwned = () => {
     if (!isAuthenticated) {
-      // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
-      window.location.href = '/login';
+      handleLoginRedirect();
       return;
     }
 
@@ -55,8 +59,7 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
 
   const toggleWanted = () => {
     if (!isAuthenticated) {
-      // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
-      window.location.href = '/login';
+      handleLoginRedirect();
       return;
     }
 
@@ -100,7 +103,7 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
         <p className="text-gray-400 text-base text-ellipsis overflow-hidden max-h-40 text-sm italic">{card.synopsis}</p>
       </div>
       <div className="p-4 flex justify-evenly">
-        {isAuthenticated && (
+        {isAuthenticated ? (
           <>
             {isOwned || isWanted ? (
               <button className={isOwned ? "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer"} onClick={isOwned ? toggleOwned : toggleWanted}>
@@ -116,6 +119,15 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
                 </button>
               </>
             )}
+          </>
+        ) : (
+          <>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={handleLoginRedirect}>
+              Je possède
+            </button>
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={handleLoginRedirect}>
+              Je le veux
+            </button>
           </>
         )}
       </div>

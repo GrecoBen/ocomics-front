@@ -71,7 +71,6 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
             </li>
           </ul>
           {isAuthenticated ? ( // Condition pour vérifier si l'utilisateur est authentifié
-            <div className=" ">
               <ul className=" hidden items-center gap-8 text-sm lg:flex">
                 <li>
                   <Link to="/ownlist" className='hover:bg-yellow-200 text-transform: uppercase'>Je possède</Link>
@@ -88,7 +87,6 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
                   )}
                 </li>
               </ul>
-            </div>
           ) : ( // Si l'utilisateur n'est pas authentifié, afficher les liens d'inscription et de connexion
             <div className="">
               <ul className="hidden items-center text-sm mx-auto gap-8 lg:flex">

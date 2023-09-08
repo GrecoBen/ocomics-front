@@ -1,19 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
-
-
 import Characters from '../Components/Characters';
 import Carousel from '../Components/Carousel';
 import Comics from '../Components/Comics';
 import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
 
-  const [resultAPI, setResultAPI] = useState<Card[] | null>(null); // Utilisation de `null` au lieu de `undefined`
-
-
 const Home: React.FC = () => {
+  const [resultAPI, setResultAPI] = useState<[] | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  // @ts-ignore  
+  // @ts-ignore
   const token = localStorage.getItem('accessToken');
 
   useEffect(() => {
@@ -21,17 +18,21 @@ const Home: React.FC = () => {
     fetch('https://grecoben-server.eddi.cloud/api/user', {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: 'Bearer ${token}',
       },
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        setResultAPI(data); // Mettre à jour resultAPI avec les données reçues
+        setLoading(false); // Indiquer que le chargement est terminé
       })
-      .catch((err) => console.error(err));
-  }, [token]); // Utilisation de l'effet pour effectuer la requête lorsqu'il y a un changement de token
+      .catch((err) => {
+        console.error(err);
+        setLoading(false); // Indiquer que le chargement est terminé en cas d'erreur
+      });
+  }, [token]);
 
-
+  // Vous pouvez maintenant utiliser resultAPI dans votre JSX
   return (
   <div>
 

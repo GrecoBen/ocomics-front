@@ -81,41 +81,45 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
   };
 
   return (
+
     <div className="bg-slate-700 h-full w-full rounded-lg border-2 w-full border-solid border border-amber-600 rounded shadow-2xl overflow-hidden key" key={card.id}>
       <img className="w-full max-h-72 object-cover cursor-pointer" src={card.poster} alt={card.title}></img>
+      
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2 text-black">{card.title}</div>
+        <div className="font-bold text-xl mb-2 text-white shadow-sm">{card.title}</div>
         <p className="text-gray-400 text-base text-ellipsis overflow-hidden max-h-40 text-sm italic">{card.synopsis}</p>
       </div>
+
       <div className="p-4 flex justify-evenly">
         {isOwned === false && (
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={addComicToCollection}>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer transition hover:-translate-y-2" onClick={addComicToCollection}>
             Je possède
           </button>
         )}
 
         {isOwned === true && (
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={removeComicFromCollection}>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer transition hover:-translate-y-2" onClick={removeComicFromCollection}>
             Je ne le possède plus
           </button>
         )}
 
         {isWanted === false && (
-          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={addComicToWish}>
+          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer transition hover:-translate-y-2" onClick={addComicToWish}>
             Je le veux
           </button>
         )}
 
         {isWanted === true && (
-          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={removeComicFromWish}>
+          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer transition hover:-translate-y-2" onClick={removeComicFromWish}>
             Je ne le veux plus
           </button>
         )}
 
         {(isOwned || isWanted) && (
-          <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={removeComicFromList}>
+          <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded cursor-pointer transition hover:-translate-y-2" onClick={removeComicFromList}>
             Supprimer de la liste
           </button>
+
         )}
       </div>
     </div>

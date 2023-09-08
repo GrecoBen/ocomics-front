@@ -64,16 +64,17 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
             
             <ul className="  gap-8 text-sm mx-auto lg:flex">
             
-              <li>
-                <Link to="/Comics" className='hover:bg-yellow-200 text-transform: uppercase'>Comics</Link>
-              </li>
-              <li>
-                <Link to="/Personnages" className='hover:bg-yellow-200 text-transform: uppercase'>Personnages</Link>
-              </li>
-            </ul>
-            {isAuthenticated ? ( // Condition pour vérifier si l'utilisateur est authentifié
-              <div className=" ">
-              <ul className="  items-center gap-8 text-sm lg:flex">
+
+            <li>
+              <Link to="/Comics" className='hover:bg-yellow-200 text-transform: uppercase'>Comics</Link>
+            </li>
+            <li>
+              <Link to="/Personnages" className='hover:bg-yellow-200 text-transform: uppercase'>Personnages</Link>
+            </li>
+          </ul>
+          {isAuthenticated ? ( // Condition pour vérifier si l'utilisateur est authentifié
+              <ul className=" hidden items-center gap-8 text-sm lg:flex">
+
                 <li>
                   <Link to="/ownlist" className='hover:bg-yellow-200 text-transform: uppercase'>Je possède</Link>
                 </li>
@@ -84,22 +85,26 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
                   <button onClick={onLogout} className='hover:bg-yellow-200 text-transform: uppercase'>Se déconnecter</button>
                 </li>
                 <li>
+                  <Link to="https://grecoben-server.eddi.cloud/" className='hover:bg-yellow-200 text-transform: uppercase'>Back Office</Link>
+                </li>
+                <li>                  
                   {isAuthenticated && ( // Afficher l'icône d'utilisateur uniquement si l'utilisateur est authentifié
                     <UserOutlined style={{ fontSize: '18px' }} />
                   )}
                 </li>
+
+              </ul>              
+          ) : ( // Si l'utilisateur n'est pas authentifié, afficher les liens d'inscription et de connexion
+            <div className="">
+              <ul className="hidden items-center text-sm mx-auto gap-8 lg:flex">
+                <li>
+                  <Link to="/register" className='hover:bg-yellow-200 text-transform: uppercase'>Inscription</Link>
+                </li>
+                <li>
+                  <Link to="/login" className='hover:bg-yellow-200 text-transform: uppercase'>Se connecter</Link>
+                </li>                
               </ul>
-              </div>
-            ) : ( // Si l'utilisateur n'est pas authentifié, afficher les liens d'inscription et de connexion
-              <div className="">
-                <ul className=" items-center text-sm mx-auto gap-8 lg:flex">
-                  <li>
-                    <Link to="/register" className='hover:bg-yellow-200 text-transform: uppercase'>Inscription</Link>
-                  </li>
-                  <li>
-                    <Link to="/login" className='hover:bg-yellow-200 text-transform: uppercase'>Se connecter</Link>
-                  </li>
-                </ul>
+
 
               </div>
             )}

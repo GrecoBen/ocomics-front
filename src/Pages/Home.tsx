@@ -6,34 +6,42 @@ import Footer from '../Components/Footer';
 import ComicsHome from '../Components/ComicsHome';
 import CharactersHome from '../Components/CharactersHome';
 
-const Home: React.FC = () => {
 
-  // @ts-ignore  
+const Home: React.FC = () => {
+  // @ts-ignore
+  const [loading, setLoading] = useState(true);
+
+  // @ts-ignore
   const token = localStorage.getItem('accessToken');
 
   useEffect(() => {
     // Effectue une requête pour obtenir les données de l'utilisateur connecté
-    fetch('https://grecoben-server.eddi.cloud/api/user', {
+    fetch('https://grecoben-server.eddi.cloud/api/home-comics', {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: 'Bearer ${token}',
       },
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // @ts-ignore
+        setResultAPI(data); // Mettre à jour resultAPI avec les données reçues
+        setLoading(false); // Indiquer que le chargement est terminé
       })
-      .catch((err) => console.error(err));
-  }, [token]); // Utilisation de l'effet pour effectuer la requête lorsqu'il y a un changement de token
+      .catch((err) => {
+        console.error(err);
+        setLoading(false); // Indiquer que le chargement est terminé en cas d'erreur
+      });
+  }, [token]);
 
-
+  // Vous pouvez maintenant utiliser resultAPI dans votre JSX
   return (
   <div>
 
     <div className="flex flex-col bg-gray-800 min-h-screen ">
 
       <div className=''>
-        <NavBar />
+        <NavBar isAuthenticated={false} />
       </div>
 
       <div><Carousel /></div>
@@ -63,3 +71,5 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
+

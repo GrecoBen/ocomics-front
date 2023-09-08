@@ -39,6 +39,7 @@ const Home: React.FC = () => {
       <div><Carousel /></div>
       <section className="mx-40 lg:mx-56">
         <h1 className='text-white  font-bold mb-1 text-xl inline-block p-2 bg-red-700 my-5'>LES NOUVEAUTÉS</h1>
+        
         <ComicsHome />
         <h1 className='text-white font-bold mb-5 text-xl inline-block p-2 bg-red-700 my-5 '>LES PERSONNAGES</h1>
         <CharactersHome />

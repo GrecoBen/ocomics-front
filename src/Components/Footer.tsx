@@ -12,13 +12,13 @@ const Footer: React.FC = () => {
       
       <div className = "flex h-12 justify-end flex space-x-2 ">
       
-        <a href="https://fr-fr.facebook.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://fr-fr.facebook.com/" target="_blank" rel="noopener noreferrer" className="hover:animate-bounce">
           <FacebookOutlined className="text-4xl " /> 
         </a>
-        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer " className="hover:animate-bounce">
           <TwitterOutlined className="text-4xl" /> 
         </a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:animate-bounce">
           <InstagramOutlined className="text-4xl" /> 
         </a>
       </div>

@@ -51,11 +51,8 @@ const Home: React.FC = () => {
         <ComicsHome />
         <h1 className='text-white font-bold mb-5 text-xl inline-block p-2 bg-red-700 my-5 '>LES PERSONNAGES</h1>
         <CharactersHome />
-        <h1 className='text-white text-center mt-20'>Tony Stark (Iron Man) : "Je préfère être un génie en herbe que l'homme le plus intelligent du cimetière."</h1>
         <div className='flex justify-center text-center m-4 md:my-16 text-white'>
-          <p>
-            "Tant que subsiste un souffle d'air dans mes poumons, je continuerai de vous défendre, quoi qu'il en coûte."
-          </p>
+          
         </div>
       </section>
 

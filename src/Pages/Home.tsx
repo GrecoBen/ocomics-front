@@ -69,3 +69,7 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+function setResultAPI(data: any) {
+  throw new Error('Function not implemented.');
+}
+

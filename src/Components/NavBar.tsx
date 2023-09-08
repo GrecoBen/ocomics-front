@@ -82,6 +82,9 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
                   <button onClick={onLogout} className='hover:bg-yellow-200 text-transform: uppercase'>Se déconnecter</button>
                 </li>
                 <li>
+                  <Link to="http://localhost:8080/" className='hover:bg-yellow-200 text-transform: uppercase'>Back Office</Link>
+                </li>
+                <li>                  
                   {isAuthenticated && ( // Afficher l'icône d'utilisateur uniquement si l'utilisateur est authentifié
                     <UserOutlined style={{ fontSize: '18px' }} />
                   )}
@@ -95,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
                 </li>
                 <li>
                   <Link to="/login" className='hover:bg-yellow-200 text-transform: uppercase'>Se connecter</Link>
-                </li>
+                </li>                
               </ul>
 
             </div>

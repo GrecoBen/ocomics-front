@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'http://localhost:8080/api/login'
+    baseURL: 'https://grecoben-server.eddi.cloud/api/login'
 });
 
 

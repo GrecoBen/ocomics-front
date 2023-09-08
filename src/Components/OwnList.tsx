@@ -12,7 +12,7 @@ const OwnList: React.FC = () => {
   const token = localStorage.getItem('accessToken');
   // console.log(search);
   useEffect(() => {
-    fetch('http://localhost:8080/api/ownedlist'
+    fetch('https://grecoben-server.eddi.cloud/api/ownedlist'
       , {
         method: 'GET',
         headers: {

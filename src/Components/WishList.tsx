@@ -10,7 +10,7 @@ const WishList: React.FC = () => {
   const token = localStorage.getItem('accessToken');
   // console.log(search);
   useEffect(() => {
-    fetch('http://localhost:8080/api/wishlist'
+    fetch('https://grecoben-server.eddi.cloud/api/wishlist'
       , {
         method: 'GET',
         headers: {

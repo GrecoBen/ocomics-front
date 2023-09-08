@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { Card } from '../types/index';
 
 type Props = {
@@ -7,13 +7,39 @@ type Props = {
   wanted: boolean;
 }
 
-// Fonction map qui prend le tableau des cards et de reformuler chacun de ses éléments en jsx qu'on veut utiliser
 const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) => {
-  const [isOwned, setIsOwned] = useState(owned);
-  const [isWanted, setIsWanted] = useState(wanted);
+  const [ ,setIsOwned] = useState(owned);
+  const [, setIsWanted] = useState(wanted);
+  const [actionTaken, setActionTaken] = useState('');
+
   const token = localStorage.getItem('accessToken');
+  const isAuthenticated = !!token; // Vérifiez si l'utilisateur est connecté
+
+  const addAction = (action: string) => {
+    setActionTaken(action);
+    if (action === 'owned') {
+      setIsOwned(true);
+      setIsWanted(false);
+    } else if (action === 'wanted') {
+      setIsOwned(false);
+      setIsWanted(true);
+    }
+  };
+
+  const removeAction = () => {
+    setActionTaken('');
+    setIsOwned(false);
+    setIsWanted(false);
+  };
+
   const addComicToWish = () => {
-    fetch('http://localhost:8080/api/wishlist/add/' + card.id, {  // Enter your IP address here
+    if (!isAuthenticated) {
+      // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+      window.location.href = '/login';
+      return;
+    }
+
+    fetch('https://grecoben-server.eddi.cloud/api/wishlist/add/' + card.id, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -21,15 +47,20 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
       }
     })
       .then((response) => {
-        console.log(response.json())
-        setIsWanted(true)
+        console.log(response.json());
+        addAction('wanted');
       })
       .catch((err) => console.error(err));
-
   };
 
   const removeComicFromWish = () => {
-    fetch('http://localhost:8080/api/wishlist/remove/' + card.id, {  // Enter your IP address here
+    if (!isAuthenticated) {
+      // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+      window.location.href = '/login';
+      return;
+    }
+
+    fetch('https://grecoben-server.eddi.cloud/api/wishlist/remove/' + card.id, {
       method: 'DELETE',
       mode: 'cors',
       headers: {
@@ -37,15 +68,20 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
       }
     })
       .then((response) => {
-        console.log(response.json())
-        setIsWanted(false)
+        console.log(response.json());
+        removeAction();
       })
       .catch((err) => console.error(err));
-
   };
 
   const addComicToCollection = () => {
-    fetch('http://localhost:8080/api/ownedlist/add/' + card.id, {  // Enter your IP address here
+    if (!isAuthenticated) {
+      // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+      window.location.href = '/login';
+      return;
+    }
+
+    fetch('https://grecoben-server.eddi.cloud/api/ownedlist/add/' + card.id, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -53,15 +89,20 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
       }
     })
       .then((response) => {
-        console.log(response.json())
-        setIsOwned(true)
+        console.log(response.json());
+        addAction('owned');
       })
       .catch((err) => console.error(err));
-
   };
 
   const removeComicFromCollection = () => {
-    fetch('http://localhost:8080/api/ownedlist/remove/' + card.id, {  // Enter your IP address here
+    if (!isAuthenticated) {
+      // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+      window.location.href = '/login';
+      return;
+    }
+
+    fetch('https://grecoben-server.eddi.cloud/api/ownedlist/remove/' + card.id, {
       method: 'DELETE',
       mode: 'cors',
       headers: {
@@ -69,11 +110,10 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
       }
     })
       .then((response) => {
-        console.log(response.json())
-        setIsOwned(false)
+        console.log(response.json());
+        removeAction();
       })
       .catch((err) => console.error(err));
-
   };
 
   return (
@@ -84,51 +124,37 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
         <p className="text-gray-400 text-base text-ellipsis overflow-hidden max-h-40 text-sm italic">{card.synopsis}</p>
       </div>
       <div className=" p-4 flex justify-evenly">
-        {isOwned == false &&
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={addComicToCollection}>
-            Je possède
-          </button>
-        }
-
-        {isOwned == true &&
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={removeComicFromCollection}>
-            Je ne le possède plus
-          </button>
-        }
-
-        {isWanted == false &&
-          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={addComicToWish}>
-            Je le veux
-          </button>
-        }
-
-        {isWanted == true &&
-          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={removeComicFromWish}>
-            Je ne le veux plus
-          </button>
-        }
+        {/* / Condition pour les utilisateurs non connectés / */}
+        {!isAuthenticated ? (
+          <>
+            <a href="/login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">Je possède</a>
+            <a href="/login" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer">Je le veux</a>
+          </>
+        ) : (
+          <>
+            {actionTaken === 'owned' ? (
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={removeComicFromCollection}>
+                Je ne le possède plus
+              </button>
+            ) : actionTaken === 'wanted' ? (
+              <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={removeComicFromWish}>
+                Je ne le veux plus
+              </button>
+            ) : (
+              <>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={addComicToCollection}>
+                  Je possède
+                </button>
+                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer" onClick={addComicToWish}>
+                  Je le veux
+                </button>
+              </>
+            )}
+          </>
+        )}
       </div>
     </div>
   );
-
 };
-
-
-
-/*
-<section> {cards.map((card: Card, key: number) => {
-  return (
-    <a href={card.poster} key={key}>
-      <article>
-        <img src="" alt="{card.title}" />
-        <h3>{card.title}</h3>
-        <p>{card.released_at}</p>
-        <p>{card.synopsis}</p>
-      </article>
-    </a>
-  );
-})} </section>;
-*/
-
 
 export default ComicsCard;

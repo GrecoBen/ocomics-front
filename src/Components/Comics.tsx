@@ -12,7 +12,7 @@ const Comics: React.FC = () => {
 
   // console.log(search);
   useEffect(() => {
-    fetch(`http://localhost:8080/api/comics?title=${search}`)
+    fetch(`https://grecoben-server.eddi.cloud/api/comics`)
       .then((response) => response.json())
       .then((data) => {        
         setResultAPI(data);

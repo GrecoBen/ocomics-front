@@ -13,7 +13,7 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
   const token = localStorage.getItem('accessToken');
 
   const addComicToWish = () => {
-    fetch('http://localhost:8080/api/wishlist/add/' + card.id, {
+    fetch('https://grecoben-server.eddi.cloud/api/wishlist/add/' + card.id, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -28,7 +28,7 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
   };
 
   const removeComicFromWish = () => {
-    fetch('http://localhost:8080/api/wishlist/remove/' + card.id, {
+    fetch('https://grecoben-server.eddi.cloud/api/wishlist/remove/' + card.id, {
       method: 'DELETE',
       mode: 'cors',
       headers: {
@@ -43,7 +43,7 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
   };
 
   const addComicToCollection = () => {
-    fetch('http://localhost:8080/api/ownedlist/add/' + card.id, {
+    fetch('https://grecoben-server.eddi.cloud/api/ownedlist/add/' + card.id, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -58,7 +58,7 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
   };
 
   const removeComicFromCollection = () => {
-    fetch('http://localhost:8080/api/ownedlist/remove/' + card.id, {
+    fetch('https://grecoben-server.eddi.cloud/api/ownedlist/remove/' + card.id, {
       method: 'DELETE',
       mode: 'cors',
       headers: {

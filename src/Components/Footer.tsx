@@ -4,7 +4,8 @@ import Logo from '../assets/Logo.png';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="flex md:justify-between footer bg-amber-400 h-12  border-5 p-0 ">
+    <footer className=" bg-amber-400">
+    <div className="flex md:justify-between footer h-12 border-5 p-0  mx-10 md:mx-20">
       <div className="">
       <img className="hidden md:block h-12 w-24 rounded-md " src={Logo} alt="" />
       </div>
@@ -21,6 +22,7 @@ const Footer: React.FC = () => {
           <InstagramOutlined className="text-4xl" /> 
         </a>
       </div>
+    </div>
     </footer>
   );
 };

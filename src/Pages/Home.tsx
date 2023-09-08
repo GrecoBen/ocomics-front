@@ -7,14 +7,13 @@ import Carousel from '../Components/Carousel';
 import Comics from '../Components/Comics';
 import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
-import SearchBar from '../Components/SearchBar';
-
-const Home: React.FC = () => {
 
   const [resultAPI, setResultAPI] = useState<Card[] | null>(null); // Utilisation de `null` au lieu de `undefined`
 
-  // @ts-ignore
 
+const Home: React.FC = () => {
+
+  // @ts-ignore  
   const token = localStorage.getItem('accessToken');
 
   useEffect(() => {
@@ -32,18 +31,19 @@ const Home: React.FC = () => {
       .catch((err) => console.error(err));
   }, [token]); // Utilisation de l'effet pour effectuer la requête lorsqu'il y a un changement de token
 
+
   return (
   <div>
 
     <div className="flex flex-col bg-gray-800 min-h-screen ">
 
-      <div className='mx-10 md:mx-20'>
-        <NavBar isAuthenticated={false} />
+      <div className=''>
+        <NavBar />
       </div>
-      <SearchBar />
+
       <div><Carousel /></div>
       <section className="mx-40 lg:mx-56">
-        <h1 className='text-white font-bold mb-1 text-xl inline-block p-2 bg-red-700 my-5'>LES NOUVEAUTÉS</h1>
+        <h1 className='text-white  font-bold mb-1 text-xl inline-block p-2 bg-red-700 my-5'>LES NOUVEAUTÉS</h1>
         <Comics />
         <h1 className='text-white font-bold mb-5 text-xl inline-block p-2 bg-red-700 my-5 '>LES PERSONNAGES</h1>
         <Characters />
@@ -55,12 +55,14 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className=' mx-10 md:mx-20'>
-        <Footer />
-      </section>
-    </div>
-  </div>
 
+      <section className=''>
+      <Footer />
+      </section>
+      
+    </div>
+    
+  </div>
 
   );
 };

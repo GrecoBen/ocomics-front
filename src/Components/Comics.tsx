@@ -21,7 +21,7 @@ const Comics: React.FC = () => {
   }, [search]);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 my-10 md:my-16 gap-5">
+    <div className=" flex justify-center grid grid-flow-rows lg:grid-cols-3 my-10 md:my-16 gap-5">
            {resultAPI?.map(item => (
         <div className="basis-1/4" key={item.id}>      
           <ComicsCard key={item.id} card={item} owned={false} wanted={false} />
@@ -35,3 +35,8 @@ const Comics: React.FC = () => {
 };
 
 export default Comics;
+
+/*
+ grid-flow-rows grid gap-4 md:grid-cols-3
+grid grid-cols-1 lg:grid-cols-3 my-10 md:my-16 gap-5
+*/

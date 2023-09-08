@@ -22,12 +22,12 @@ const Slider = [
 
 const Carou: React.FC = () => (
 
-  <div className="flex flex-col h-scream my-5 h-[500px]">
+  <div className="flex flex-col my-5 md:h-[500px]">
   
     <Carousel autoplay>
       {Slider.map((imageUrl, index) => (
-        <div key={index} className="w-full relative h-full">
-            <div className="container absolute top-10 left-14 mx-auto p-8 text-center">
+        <div key={index} className="w-full relative  h-full">
+            <div className="absolute flex flex-col p-8 mx-auto  justify-center text-center">
                 <div><h1 className="rounded-lg bg-black bg-opacity-50 px-2 py-1 text-center text-4xl font-stencil font-semibold text-white inline-block">Bienvenue Sur O'Comics</h1></div>
                 <div>
                   <p className="rounded-lg bg-black bg-opacity-50 px-2 py-1 text-center text-xl font-stencil font-semibold text-white mt-40 inline-block">

@@ -25,7 +25,7 @@ const WishList: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="grid grid-cols-1 lg:grid-cols-3 my-10 md:my-16 gap-5">
         {resultAPI?.map(item => (
 
         <div className="basis-1/4" key={item.id}>

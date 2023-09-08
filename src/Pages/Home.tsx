@@ -23,6 +23,7 @@ const Home: React.FC = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        // @ts-ignore
         setResultAPI(data); // Mettre à jour resultAPI avec les données reçues
         setLoading(false); // Indiquer que le chargement est terminé
       })
@@ -69,7 +70,5 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-function setResultAPI(data: any) {
-  throw new Error('Function not implemented.');
-}
+
 

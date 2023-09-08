@@ -23,10 +23,7 @@ const Home: React.FC = () => {
     })
     .catch((err) => console.error(err));
 
-   /* const cardPicker = (): Card[]  => {
-      if (!resultAPI || resultAPI.message === "le message d'erreur d'API") return [];
-      return resultAPI.items || [];
-      };  */
+ 
 
   return (
   <div>
@@ -39,7 +36,7 @@ const Home: React.FC = () => {
       
       <div><Carousel /></div>
       <section className="mx-40 lg:mx-56">
-        <h1 className='text-white font-bold mb-1 text-xl inline-block p-2 bg-red-700 my-5'>LES NOUVEAUTÉS</h1>
+        <h1 className='text-white  font-bold mb-1 text-xl inline-block p-2 bg-red-700 my-5'>LES NOUVEAUTÉS</h1>
         <Comics />
         <h1 className='text-white font-bold mb-5 text-xl inline-block p-2 bg-red-700 my-5 '>LES PERSONNAGES</h1>
         <Characters />
@@ -59,7 +56,7 @@ const Home: React.FC = () => {
       
     </div>
     
-
+  </div>
   );
 };
 //<Characters />

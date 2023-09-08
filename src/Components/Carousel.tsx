@@ -27,7 +27,7 @@ const Carou: React.FC = () => (
     <Carousel autoplay>
       {Slider.map((imageUrl, index) => (
         <div key={index} className="w-full relative  h-full">
-            <div className="absolute flex flex-col top-10 left-14 mx-auto p-8 justify-center text-center">
+            <div className="absolute flex flex-col p-8 mx-auto  justify-center text-center">
                 <div><h1 className="rounded-lg bg-black bg-opacity-50 px-2 py-1 text-center text-4xl font-stencil font-semibold text-white inline-block">Bienvenue Sur O'Comics</h1></div>
                 <div>
                   <p className="rounded-lg bg-black bg-opacity-50 px-2 py-1 text-center text-xl font-stencil font-semibold text-white mt-40 inline-block">

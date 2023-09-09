@@ -41,7 +41,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
           </div>
           <ul className="lg:flex gap-8 text-sm mx-auto">
             <li>
-              <Link to="/Comics" className="hover:bg-yellow-200 uppercase">Comics</Link>
+              <Link to="/comics" className="hover:bg-yellow-200 uppercase">Comics</Link>
             </li>
             <li>
               <Link to="/Personnages" className="hover:bg-yellow-200 uppercase">Personnages</Link>

@@ -16,7 +16,7 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
 
   const handleLoginRedirect = () => {
     // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
-    window.location.href = '/login';
+    window.location.href = '/#/login';
   };
 
   const toggleOwned = () => {

@@ -26,17 +26,17 @@ const App: React.FC = () => {
         <Route path="/" element={<Layout />} >
             {/*public routes*/}
           <Route path="/" element={<Home />} />
-          <Route path="/comics" element={<ComicsPage/>} />
-          <Route path="/Personnages" element={<CharactersList/>} />
-          <Route path="/register" element={<Register/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/unauthorized" element={<Unauthorized/>} />
+          <Route path="/comics" element={<ComicsPage />} />
+          <Route path="/Personnages" element={<CharactersList />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="/character-comics/:characterId" element={<CharacterComicsPage />} />
             {/*protected routes*/}
           <Route element={<RequireAuth/>} >
-            <Route path="/wishlist" element={<WishPage/>} />
-            <Route path="/ownlist" element={<OwnPage/>} />
-            <Route path="/administration" element={<Administration/>} />
+            <Route path="/wishlist" element={<WishPage />} />
+            <Route path="/ownlist" element={<OwnPage />} />
+            <Route path="/administration" element={<Administration />} />
             <Route path="/backoffice" element={<BackOffice />} /> 
           </Route>
         </Route>

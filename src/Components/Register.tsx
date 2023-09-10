@@ -70,12 +70,21 @@ const Register = () => {
     }
 
     try {
+      // Vous pouvez ajouter "Role_USER" ici dans les données d'inscription
       const response = await fetch(REGISTER_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password, email, firstName, lastName }), 
+        body: JSON.stringify({
+          username,
+          password,
+          email,
+          firstName,
+          lastName,
+          // Ajoutez le rôle ici
+          roles: ['ROLE_USER'],
+        }),
       });
 
       if (response.ok) {

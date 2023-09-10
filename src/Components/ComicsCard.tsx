@@ -35,8 +35,13 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
         },
       })
         .then((response) => {
-          console.log(response.json());
-          setIsOwned(false);
+          if (response.ok) {
+            // Suppression réussie, mettez à jour l'état
+            setIsOwned(false);
+          } else {
+            // Gérez les erreurs ici
+            console.error('Erreur lors de la suppression du comic');
+          }
         })
         .catch((err) => console.error(err));
     } else {
@@ -49,9 +54,14 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
         },
       })
         .then((response) => {
-          console.log(response.json());
-          setIsOwned(true);
-          setIsWanted(false);
+          if (response.ok) {
+            // Ajout réussi, mettez à jour l'état
+            setIsOwned(true);
+            setIsWanted(false);
+          } else {
+            // Gérez les erreurs ici
+            console.error('Erreur lors de l\'ajout du comic');
+          }
         })
         .catch((err) => console.error(err));
     }
@@ -73,8 +83,13 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
         },
       })
         .then((response) => {
-          console.log(response.json());
-          setIsWanted(false);
+          if (response.ok) {
+            // Suppression réussie, mettez à jour l'état
+            setIsWanted(false);
+          } else {
+            // Gérez les erreurs ici
+            console.error('Erreur lors de la suppression du comic de la wishlist');
+          }
         })
         .catch((err) => console.error(err));
     } else {
@@ -87,9 +102,14 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
         },
       })
         .then((response) => {
-          console.log(response.json());
-          setIsWanted(true);
-          setIsOwned(false);
+          if (response.ok) {
+            // Ajout réussi, mettez à jour l'état
+            setIsWanted(true);
+            setIsOwned(false);
+          } else {
+            // Gérez les erreurs ici
+            console.error('Erreur lors de l\'ajout du comic à la wishlist');
+          }
         })
         .catch((err) => console.error(err));
     }
@@ -106,7 +126,7 @@ const ComicsCard: React.FC<Props> = ({ card, owned = false, wanted = false }) =>
         {isAuthenticated ? (
           <>
             {isOwned || isWanted ? (
-              <button className={isOwned ? "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" : "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer"} onClick={isOwned ? toggleOwned : toggleWanted}>
+              <button className={isOwned ? "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" : "bg-red-500 hover.bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer"} onClick={isOwned ? toggleOwned : toggleWanted}>
                 Supprimer
               </button>
             ) : (

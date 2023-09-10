@@ -51,8 +51,7 @@ const Home: React.FC = () => {
         <ComicsHome />
         <h1 className='text-white font-bold mb-5 text-xl inline-block p-2 bg-red-700 my-5 '>LES PERSONNAGES</h1>
         <CharactersHome />
-        <div className='flex justify-center text-center m-4 md:my-16 text-white'>
-          
+        <div className='flex justify-center text-center m-4 md:my-16 text-white'>          
         </div>
       </section>
 

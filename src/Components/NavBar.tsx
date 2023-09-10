@@ -68,7 +68,11 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
               )}
             </li>
             <li>
-              <Link to="https://grecoben-server.eddi.cloud/" className="hover:bg-yellow-200 uppercase">Back Office</Link>
+              {isAuthenticated ? (
+                <Link to="https://grecoben-server.eddi.cloud/" className="hover:bg-yellow-200 uppercase">Back Office</Link>
+              ) : (
+                null // Ou <></> si vous préférez
+              )}
             </li>
             <li>
               {isAuthenticated && (

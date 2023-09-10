@@ -6,7 +6,13 @@ const AuthContext = createContext<{ auth: any; setAuth: any }>({ auth: {}, setAu
 // Créez un composant fournisseur d'authentification qui englobe les enfants avec le contexte d'authentification
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
     // Utilisez l'état local pour stocker les données d'authentification
-    const [auth, setAuth] = useState({});
+    const [auth, setAuth] = useState({
+        auth: false, // Authentifié ou non
+        email: '', // Email de l'utilisateur
+        roles: [], // Rôles de l'utilisateur
+        accessToken: '', // Jeton d'accès de l'utilisateur
+        username: 'username', // Ajoutez un champ pour le nom d'utilisateur
+    });
 
     // Utilisez useEffect pour récupérer les données d'authentification depuis le stockage local lorsque le composant est monté
     useEffect(() => {

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react'; // Importez useContext
 import Logo from '../assets/Logo.png';
 import { UserOutlined } from '@ant-design/icons';
 import useAuth from '../hooks/useAuth';
 import { useNavigate, Link } from 'react-router-dom';
+import AuthContext from '../context/AuthProvider';
 
 type NavbarProps = {
   isAuthenticated: boolean;
@@ -25,6 +26,9 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
   };
 
   isAuthenticated = auth.auth;
+
+  // Utilisez useContext pour accéder aux données d'authentification
+  const { auth: authContext } = useContext(AuthContext);
 
   return (
     <section className="">
@@ -67,11 +71,21 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
                 <></>
               )}
             </li>
+            
             <li>
               {isAuthenticated ? (
                 <Link to="https://grecoben-server.eddi.cloud/" className="hover:bg-yellow-200 uppercase">Back Office</Link>
               ) : (
-                null // Ou <></> si vous préférez
+                null
+              )}
+            </li>
+            <li>
+              {isAuthenticated ? (
+                <span className="hover:bg-yellow-200 uppercase" style={{ fontStyle: 'italic', fontWeight: 'lighter' }}>
+                  Bienvenue <span style={{ fontStyle: 'italic', fontWeight: 'lighter' }}>{authContext.email}</span>
+                </span>
+              ) : (
+                <></>
               )}
             </li>
             <li>

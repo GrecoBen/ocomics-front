@@ -64,10 +64,57 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
               />
             </svg>
           </button>
+          {/* Les éléments du menu bureau */}
+          <ul className="hidden md:flex space-x-4 ml-auto">
+            <li>
+              <Link to="/comics" className="block py-2">Comics</Link>
+            </li>
+            <li>
+              <Link to="/Personnages" className="block py-2">Personnages</Link>
+            </li>
+            {/* Ajoutez ici d'autres éléments du menu bureau si nécessaire */}
+            {isAuthenticated ? (
+              <>
+                <li>
+                  <Link to="/ownlist" className="block py-2">Je possède</Link>
+                </li>
+                <li>
+                  <Link to="/wishlist" className="block py-2">Je recherche</Link>
+                </li>
+                <li>
+                  <button onClick={onLogout} className="block py-2">Se déconnecter</button>
+                </li>
+                <li>
+                  <Link to="https://grecoben-server.eddi.cloud/" className="block py-2">Back Office</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/register" className="block py-2">Inscription</Link>
+                </li>
+                <li>
+                  <Link to="/login" className="block py-2">Se connecter</Link>
+                </li>
+              </>
+            )}
+            {isAuthenticated && (
+              <li>
+                <span className="block py-2" style={{ fontStyle: 'italic', fontWeight: 'lighter' }}>
+                  Bienvenue <span style={{ fontStyle: 'italic', fontWeight: 'lighter' }}>{authContext.email}</span>
+                </span>
+              </li>
+            )}
+            {isAuthenticated && (
+              <li>
+                <UserOutlined style={{ fontSize: '18px' }} />
+              </li>
+            )}
+          </ul>
         </div>
         
         {isMobileMenuOpen && (
-          <div className="md:hidden">
+          <div>
             <ul className="bg-white p-4 space-y-2">
               <li>
                 <Link to="/comics" className="block py-2">Comics</Link>

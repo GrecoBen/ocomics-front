@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'; // Importez useContext
+import React, { useContext, useState } from 'react';
 import Logo from '../assets/Logo.png';
 import { UserOutlined } from '@ant-design/icons';
 import useAuth from '../hooks/useAuth';
@@ -27,8 +27,13 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
 
   isAuthenticated = auth.auth;
 
-  // Utilisez useContext pour accéder aux données d'authentification
   const { auth: authContext } = useContext(AuthContext);
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <section className="">
@@ -43,58 +48,74 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
               <img className="h-[3.5rem] w-24 rounded-md cursor-pointer" src={Logo} alt="" />
             </Link>
           </div>
-          <ul className="lg:flex gap-8 text-sm mx-auto">
-            <li>
-              <Link to="/comics" className="hover:bg-yellow-200 uppercase">Comics</Link>
-            </li>
-            <li>
-              <Link to="/Personnages" className="hover:bg-yellow-200 uppercase">Personnages</Link>
-            </li>
-            <li>
-              {isAuthenticated ? (
-                <Link to="/ownlist" className="hover:bg-yellow-200 uppercase">Je possède</Link>
-              ) : (
-                <Link to="/register" className="hover:bg-yellow-200 uppercase">Inscription</Link>
-              )}
-            </li>
-            <li>
-              {isAuthenticated ? (
-                <Link to="/wishlist" className="hover:bg-yellow-200 uppercase">Je recherche</Link>
-              ) : (
-                <Link to="/login" className="hover:bg-yellow-200 uppercase">Se connecter</Link>
-              )}
-            </li>
-            <li>
-              {isAuthenticated ? (
-                <button onClick={onLogout} className="hover:bg-yellow-200 uppercase">Se déconnecter</button>
-              ) : (
-                <></>
-              )}
-            </li>
-            
-            <li>
-              {isAuthenticated ? (
-                <Link to="https://grecoben-server.eddi.cloud/" className="hover:bg-yellow-200 uppercase">Back Office</Link>
-              ) : (
-                null
-              )}
-            </li>
-            <li>
-              {isAuthenticated ? (
-                <span className="hover:bg-yellow-200 uppercase" style={{ fontStyle: 'italic', fontWeight: 'lighter' }}>
-                  Bienvenue <span style={{ fontStyle: 'italic', fontWeight: 'lighter' }}>{authContext.email}</span>
-                </span>
-              ) : (
-                <></>
-              )}
-            </li>
-            <li>
-              {isAuthenticated && (
-                <UserOutlined style={{ fontSize: '18px' }} />
-              )}
-            </li>
-          </ul>
+          <button className="md:hidden ml-auto block p-2" onClick={toggleMobileMenu}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
         </div>
+        
+        
+        {isMobileMenuOpen && (
+          <div className="md:hidden">
+            <ul className="bg-white p-4 space-y-2">
+              <li>
+                <Link to="/comics" className="block py-2">Comics</Link>
+              </li>
+              <li>
+                <Link to="/Personnages" className="block py-2">Personnages</Link>
+              </li>
+              {isAuthenticated ? (
+                <>
+                  <li>
+                    <Link to="/ownlist" className="block py-2">Je possède</Link>
+                  </li>
+                  <li>
+                    <Link to="/wishlist" className="block py-2">Je recherche</Link>
+                  </li>
+                  <li>
+                    <button onClick={onLogout} className="block py-2">Se déconnecter</button>
+                  </li>
+                  <li>
+                    <Link to="https://grecoben-server.eddi.cloud/" className="block py-2">Back Office</Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/register" className="block py-2">Inscription</Link>
+                  </li>
+                  <li>
+                    <Link to="/login" className="block py-2">Se connecter</Link>
+                  </li>
+                </>
+              )}
+              {isAuthenticated && (
+                <li>
+                  <span className="block py-2" style={{ fontStyle: 'italic', fontWeight: 'lighter' }}>
+                    Bienvenue <span style={{ fontStyle: 'italic', fontWeight: 'lighter' }}>{authContext.email}</span>
+                  </span>
+                </li>
+              )}
+              {isAuthenticated && (
+                <li>
+                  <UserOutlined style={{ fontSize: '18px' }} />
+                </li>
+              )}
+            </ul>
+          </div>
+        )}
       </nav>
     </section>
   );

@@ -66,7 +66,6 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
           </button>
         </div>
         
-        
         {isMobileMenuOpen && (
           <div className="md:hidden">
             <ul className="bg-white p-4 space-y-2">

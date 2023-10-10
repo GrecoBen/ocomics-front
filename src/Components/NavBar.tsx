@@ -115,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated }) => {
         
         {isMobileMenuOpen && (
           <div>
-            <ul className="bg-white p-4 space-y-2">
+            <ul className="bg-yellow-500 space-y-2">
               <li>
                 <Link to="/comics" className="block py-2">Comics</Link>
               </li>
